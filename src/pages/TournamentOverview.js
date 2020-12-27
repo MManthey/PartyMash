@@ -1,5 +1,5 @@
 import React from "react"
-import TournamnetType from "./TournamentType"
+import TournamnetType from "../components/TournamentType"
 import { Grid } from '@material-ui/core'
 import koTournamentImage from "../images/ko-turnier.jpg"
 import roundTournamentImage from "../images/runden-turnier.jpg"
@@ -21,8 +21,8 @@ import roundTournamentImage from "../images/runden-turnier.jpg"
 
 */
 class TournamentOverview extends React.Component {
-    // constructor(){
-    //     super()
+    // constructor(props){
+    //     super(props)
     // }
     
 
