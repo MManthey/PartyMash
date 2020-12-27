@@ -6,7 +6,6 @@ import VideogameAsset from '@material-ui/icons/VideogameAsset';
 import GridOn from '@material-ui/icons/GridOn';
 import FormatListNumbered from '@material-ui/icons/FormatListNumbered';
 import Games from '../components/Games';
-import { makeStyles } from '@material-ui/core/styles';
 
 class TournamentOverview extends React.Component {
 
@@ -37,4 +36,4 @@ class TournamentOverview extends React.Component {
   }
 }
 
-export default TournamentOverview;
+export default TournamentOverview
