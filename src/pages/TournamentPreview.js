@@ -28,22 +28,18 @@ class TournamentPreview extends React.Component {
 
     render(){
         const gridItemStyle = {
-            width: "100%",
+            //width: "100%",
             marginTop : '20px',
         }
         return(
             <Grid
                 container
-                direction="column"
+                direction="row"
+                spacing={3}
                 justify="center"
-                alignItems="center"
             >
-                <Grid item xs={12} style={gridItemStyle}> 
-                    <TournamnetType tournamentType="ko" name="K.O. Turnier" src={koTournamentImage}/>
-                </Grid>
-                <Grid item xs={12} style={gridItemStyle}>
-                    <TournamnetType tournamentType="round" name="Rundenturnier" src={roundTournamentImage}/>
-                </Grid>
+                <TournamnetType tournamentType="ko" name="K.O. Turnier" src={koTournamentImage}/>
+                <TournamnetType tournamentType="round" name="Rundenturnier" src={roundTournamentImage}/>
             </Grid>
         )
     }
