@@ -19,9 +19,9 @@ const NavBar = () => {
                             Partymash
                         </Typography>
                     </Link>
-                    <Link style={navStyle} to='/tournamentOverview'>
+                    <Link style={navStyle} to='/createTournament'>
                         <Typography variant="h6" >
-                            Turnierübersicht
+                             Turnier erstellen 
                         </Typography>
                     </Link>
                     <Link style={navStyle} to='/about'>
