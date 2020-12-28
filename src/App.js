@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import TournamentOverview from './pages/TournamentOverview';
+import TeamZuordnenPage from './pages/TeamZuordnenPage';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" exact component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/tournamentOverview" component={TournamentOverview}/>
+            <Route path="/teamZuordnen" component={TeamZuordnenPage}/>
           </Switch>
       </div>
     </Router>
