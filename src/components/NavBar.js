@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
 
     const navStyle = {
-        color: 'white'
+        color: 'white',
+        marginRight: "20px"
     };
 
     return(
@@ -19,9 +20,9 @@ const NavBar = () => {
                             Partymash
                         </Typography>
                     </Link>
-                    <Link style={navStyle} to='/tournamentOverview'>
+                    <Link style={navStyle} to='/tournamentPreview'>
                         <Typography variant="h6" >
-                            Turnierübersicht
+                             Turnier auswählen
                         </Typography>
                     </Link>
                     <Link style={navStyle} to='/about'>
