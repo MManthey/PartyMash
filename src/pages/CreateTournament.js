@@ -1,13 +1,17 @@
-import React from "react"
+import React from "react";
+import NavBar from "../components/NavBar";
 
-class TournamentOverview extends React.Component {
-
-    render() {
-        return (
-        <div>
-            CreateTournament
-        </div>
-        )}
+function TournamentOverview() {
+  return (
+    <div>
+      <NavBar
+        leftSide="arrow"
+        text="Rundenturnier Erstellen"
+        rightSide="info"
+      />
+      CreateTournament
+    </div>
+  );
 }
 
-export default TournamentOverview
+export default TournamentOverview;

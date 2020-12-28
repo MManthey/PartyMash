@@ -1,23 +1,18 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import VideogameAsset from '@material-ui/icons/VideogameAsset';
-import GridOn from '@material-ui/icons/GridOn';
-import FormatListNumbered from '@material-ui/icons/FormatListNumbered';
-import Games from '../components/Games';
+import React from "react";
+import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import VideogameAsset from "@material-ui/icons/VideogameAsset";
+import GridOn from "@material-ui/icons/GridOn";
+import FormatListNumbered from "@material-ui/icons/FormatListNumbered";
+import Games from "../components/Games";
+import NavBar from "../components/NavBar";
 
 class TournamentOverview extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-
   render() {
-
     return (
       <>
+        <NavBar logo={true} text="# 4345" rightSide="menu" />
         <Paper square>
           <Tabs
             variant="fullWidth"
@@ -30,10 +25,10 @@ class TournamentOverview extends React.Component {
             <Tab icon={<FormatListNumbered />} label="Rangliste" />
           </Tabs>
         </Paper>
-        <Games/>
+        <Games />
       </>
     );
   }
 }
 
-export default TournamentOverview
+export default TournamentOverview;
