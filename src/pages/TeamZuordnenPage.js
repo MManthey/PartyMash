@@ -1,9 +1,31 @@
 import React from 'react';
-import Avatar from '../components/Avatar';
+
+import TeamRow from '../components/teams/TeamRow';
 
 function TeamZuordnenPage() {
+
+    const pageStyle = {
+        position: "relative",
+        padding: "20px",
+        height: "100%",
+    };
+    const rowStyle = {
+        paddingBottom: "20px"
+    };
+    //TODO Add footer
     return (
-     <Avatar imagePath="/userImages/avatar.png" name="PB"></Avatar>
+        <div style={pageStyle}>
+            <div style={rowStyle}>
+                <TeamRow></TeamRow>
+            </div>
+            <div style={rowStyle}>
+                <TeamRow></TeamRow>
+            </div>
+            <div style={rowStyle}>
+                <TeamRow></TeamRow>
+            </div>
+            
+     </div>
     );
   }
   

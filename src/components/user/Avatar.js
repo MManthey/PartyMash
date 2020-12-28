@@ -1,23 +1,33 @@
+import zIndex from '@material-ui/core/styles/zIndex';
 import React from 'react';
 
 function Avatar(data){
 
     const containerStyle = {
+        float: "left",
+        height: "100%",
+        width: "20%",
         position: "relative",
-        textAlign: "center",
-        color: "white"
+        color: "white",
+        padding: "6px"
+
     };
     const imageStyle = {
+        position: "relative",
         borderRadius: "50%",
-        width: "100%"
+        width: "100%",
+        top: "0",
+        left: "0"
     };
+    //TODO Text position scaling not working 100% beatiful on reisize
     const textStyle = {
+        zIndex: "100",
         position: "absolute",
-        top: "25%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        fontSize: "1000%",
+        top: "0",
+        left: "25%",
+        fontSize: "180%",
         textShadow: "0 0 10px black"
+        
     };
 
     return(
