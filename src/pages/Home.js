@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
+import NavBar from "../components/NavBar";
 function Home() {
   return (
     <div>
-        <h1>Home</h1>
+      <NavBar leftSide="avatar" text="Hallo" rightSide="menu" />
+      <h1>Home</h1>
     </div>
   );
 }
