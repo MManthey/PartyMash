@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    flexGrow: 1,
     height: 150,
   },
 }));
@@ -32,8 +31,7 @@ function Home() {
         direction="column"
         justify="center"
         alignItems="center"
-        spacing={6}
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "70vh" }}
       >
         <Grid item>
           <Button
@@ -42,6 +40,7 @@ function Home() {
             variant="contained"
             size="large"
             component={Link}
+            style={{ marginBottom: 60 }}
             to="/"
           >
             <Typography variant="h6">Code eingeben</Typography>
