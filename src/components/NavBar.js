@@ -11,7 +11,7 @@ import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import logo from "../images/partymash_logo_small.png";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 export default function NavBar(props) {
   const classes = useStyles();
 
+  let history = useHistory();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -54,6 +56,7 @@ export default function NavBar(props) {
             edge="start"
             className={classes.menuButton}
             color="inherit"
+            onClick={() => history.goBack()}
           >
             <ArrowBackIosIcon />
           </IconButton>

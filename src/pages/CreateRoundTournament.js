@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 
-function TournamentOverview() {
+function CreateRoundTournament() {
   return (
     <div>
       <NavBar
@@ -9,9 +9,9 @@ function TournamentOverview() {
         text="Rundenturnier Erstellen"
         rightSide="info"
       />
-      CreateTournament
+      CreateTournament Einstellungen
     </div>
   );
 }
 
-export default TournamentOverview;
+export default CreateRoundTournament;

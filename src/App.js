@@ -2,7 +2,8 @@ import React from "react";
 import Home from "./pages/Home";
 import TournamentOverview from "./pages/TournamentOverview";
 import TeamZuordnenPage from "./pages/TeamZuordnenPage";
-import CreateTournament from "./pages/CreateTournament";
+import CreateRoundTournament from "./pages/CreateRoundTournament";
+import CreateKnockoutTournament from "./pages/CreateKnockoutTournament";
 import TournamentPreview from "./pages/TournamentPreview";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -34,7 +35,14 @@ function App() {
             <Route path="/tournamentOverview" component={TournamentOverview} />
             <Route path="/teamZuordnen" component={TeamZuordnenPage} />
             <Route path="/tournamentPreview" component={TournamentPreview} />
-            <Route path="/createTournament" component={CreateTournament} />
+            <Route
+              path="/createRoundTournament"
+              component={CreateRoundTournament}
+            />
+            <Route
+              path="/createKnockoutTournament"
+              component={CreateKnockoutTournament}
+            />
             {/* zum Testen */}
             <Route path="/overview" component={TournamentOverview} />
           </Switch>
