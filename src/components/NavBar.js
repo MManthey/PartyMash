@@ -9,6 +9,9 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import logo from "../images/partymash_logo_small.png";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,10 +31,24 @@ const useStyles = makeStyles((theme) => ({
     height: "24px",
     paddingRight: "16px",
   },
+  link: {
+    textDecoration: "none",
+    display: "block",
+  },
 }));
 
 export default function NavBar(props) {
   const classes = useStyles();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   function renderLeftNavBar(param) {
     switch (param) {
@@ -60,8 +77,16 @@ export default function NavBar(props) {
     }
   }
 
-  function renderRightNavBar(param) {
-    switch (param) {
+  function menuItems(items) {
+    return items.map((item) => (
+      <MenuItem component={Link} to={item.path} onClick={handleClose}>
+        {item.name}
+      </MenuItem>
+    ));
+  }
+
+  function renderRightNavBar(props) {
+    switch (props.rightSide) {
       case "info":
         return (
           <IconButton edge="end" color="inherit">
@@ -70,9 +95,25 @@ export default function NavBar(props) {
         );
       case "menu":
         return (
-          <IconButton edge="end" aria-haspopup="true" color="inherit">
-            <MoreVertOutlinedIcon />
-          </IconButton>
+          <>
+            <IconButton
+              edge="end"
+              aria-haspopup="true"
+              color="inherit"
+              onClick={handleClick}
+            >
+              <MoreVertOutlinedIcon />
+            </IconButton>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {menuItems(props.menuItems)}
+            </Menu>
+          </>
         );
       default:
         return null;
@@ -98,7 +139,7 @@ export default function NavBar(props) {
         <Toolbar>
           {renderLeftNavBar(props.leftSide)}
           {renderMiddleNavBar(props)}
-          {renderRightNavBar(props.rightSide)}
+          {renderRightNavBar(props)}
         </Toolbar>
       </AppBar>
     </div>

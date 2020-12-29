@@ -1,12 +1,12 @@
 import React from "react";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import TournamentOverview from "./pages/TournamentOverview";
 import TeamZuordnenPage from "./pages/TeamZuordnenPage";
 import CreateTournament from "./pages/CreateTournament";
 import TournamentPreview from "./pages/TournamentPreview";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import GlobalSettings from "./pages/GlobalSettings";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,7 +30,7 @@ function App() {
         <div>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/globalSettings" component={GlobalSettings} />
             <Route path="/tournamentOverview" component={TournamentOverview} />
             <Route path="/teamZuordnen" component={TeamZuordnenPage} />
             <Route path="/tournamentPreview" component={TournamentPreview} />
