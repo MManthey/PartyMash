@@ -5,11 +5,17 @@ import { Typography } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import GroupedButtons from "../components/GroupedButtons";
 
 const useStyles = makeStyles((theme) => ({
   button: {
     height: 60,
+  },
+  root: {
+    paddingLeft: 32,
+    paddingRight: 32,
   },
 }));
 
@@ -35,7 +41,20 @@ function CreateRoundTournament() {
           <Typography>Turnierrunden</Typography>
         </Grid>
         <Grid item>
-          <Typography>Teams erlauben</Typography>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            wrap="nowrap"
+            justify="space-between"
+          >
+            <Grid item>
+              <Typography>Teams erlauben</Typography>
+            </Grid>
+            <Grid item>
+              <GroupedButtons />
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item>
           <Typography>Teamgröße beschränken</Typography>
