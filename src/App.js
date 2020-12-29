@@ -6,20 +6,20 @@ import TeamZuordnenPage from "./pages/TeamZuordnenPage";
 import CreateTournament from "./pages/CreateTournament";
 import TournamentPreview from "./pages/TournamentPreview";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#000000',
-      background: '#0E4DA4',
+      main: "#0E4DA4",
+      background: "#0E4DA4",
     },
     secondary: {
-      main: '#000000',
+      main: "#1BB55C",
     },
     selected: {
-      background: '#0E4DA4',
-    }
+      background: "#0E4DA4",
+    },
   },
 });
 

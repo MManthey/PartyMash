@@ -9,7 +9,9 @@ import Games from "../components/Games";
 import Table from "../components/Table";
 import Ranking from "../components/Ranking";
 import { makeStyles } from "@material-ui/core/styles";
+import NavBar from "../components/NavBar";
 
+//Die Seite soll auch auf dem Desktop funktionieren/nicht kauputt aussehen, das mit MaxWidth ist glaube ich keine gute Idee
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -27,6 +29,7 @@ function TournamentOverview() {
 
   return (
     <>
+      <NavBar logo={true} text="#45583" rightSide="menu" />
       <Paper square className={classes.root}>
         <Tabs
           value={value}
@@ -41,7 +44,7 @@ function TournamentOverview() {
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
-      {value == 0 ? <Games /> : value == 1 ? <Table /> : <Ranking />}
+      {value === 0 ? <Games /> : value === 1 ? <Table /> : <Ranking />}
     </>
   );
 }
