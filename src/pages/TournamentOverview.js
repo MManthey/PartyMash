@@ -15,16 +15,58 @@ import NavBar from "../components/NavBar";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    maxWidth: 500,
   },
 });
 
-function TournamentOverview() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+const testGames = [
+  {
+    "p1": "Team 1",
+    "p2": "Team 2",
+    "running" : true
+  },
+  {
+    "p1": "Team 3",
+    "p2": "Team 4",
+    "running" : true
+  },
+  {
+    "p1": "Team 5",
+    "p2": "Team 6",
+    "running" : true
+  },
+  {
+    "p1": "Team 7",
+    "p2": "Team 8",
+    "running" : false
+  },
+  {
+    "p1": "Team 9",
+    "p2": "Team 10",
+    "running" : false
+  },
+  {
+    "p1": "Team 11",
+    "p2": "Team 12",
+    "running" : false
+  },
+];
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+const testNotifications = [
+  {
+    "message": "In 3 Spielen trittst du gegen Team 7 an!",
+  }
+]
+
+
+function TournamentOverview() {
+
+  const classes = useStyles();
+  const [tabIndex, setTabIndex] = React.useState(0);
+  const [games, setGames] = React.useState(testGames);
+  const [notifications, setNotifications] = React.useState(testNotifications);
+
+  const handleChange = (event, newTabIndex) => {
+    setTabIndex(newTabIndex);
   };
 
   return (
@@ -32,7 +74,7 @@ function TournamentOverview() {
       <NavBar logo={true} text="#45583" rightSide="menu" />
       <Paper square className={classes.root}>
         <Tabs
-          value={value}
+          value={tabIndex}
           onChange={handleChange}
           variant="fullWidth"
           indicatorColor="secondary"
@@ -44,7 +86,7 @@ function TournamentOverview() {
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
-      {value === 0 ? <Games /> : value === 1 ? <Table /> : <Ranking />}
+      {tabIndex === 0 ? <Games games={games} notifications={notifications}/> : tabIndex === 1 ? <Table /> : <Ranking />}
     </>
   );
 }
