@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     height: "24px",
     paddingRight: "16px",
   },
-  link: {
-    textDecoration: "none",
-    display: "block",
-  },
 }));
 
 export default function NavBar(props) {
@@ -111,7 +107,7 @@ export default function NavBar(props) {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              {menuItems(props.menuItems)}
+              {props.menuItems && menuItems(props.menuItems)}
             </Menu>
           </>
         );
