@@ -1,13 +1,13 @@
 import React from "react";
 import { Button, Grid } from "@material-ui/core";
 import InfoIconOutlined from "@material-ui/icons/Info";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import ModalOverlay from "./ModalOverlay";
 import { Link } from "react-router-dom";
 
 function TournamentType(props) {
-  const history = useHistory();
-
+  //const history = useHistory()
+    
   const [modalKO, setModalKO] = React.useState(false);
   const [modalRound, setModalRound] = React.useState(false);
   const [modalInfo, setModalInfo] = React.useState("");
@@ -35,9 +35,9 @@ function TournamentType(props) {
       //Es gibt jetzt 2 verschieden createTournament Seiten
       //Hab das mit dem Navigieren bis jetzt ohne history push gemacht sondern nur mit
       //component={Link} und to=... wo ist der unterschied/vorteil? -Michi
-      history.push("/createRoundTournament", {
-        type: event.currentTarget.name,
-      });
+    //   history.push("/createRoundTournament", {
+    //     type: event.currentTarget.name,
+    //   });
     } else {
       //image clicked
       handleOpen(event);
@@ -85,11 +85,9 @@ function TournamentType(props) {
         <Button
           name={props.tournamentType}
           variant="contained"
-          color="primary"
-          onMouseDown={handleClick}
-          //So hätte ich gedacht dass die verlinkung funktioniert
-          //   component={Link}
-          //   to="/createKnockoutTournament"
+          color="primary"          
+          component={Link}
+          to={props.linkTo}
         >
           {props.name}
         </Button>

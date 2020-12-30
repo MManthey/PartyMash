@@ -1,9 +1,8 @@
 import React from "react";
 import TournamnetType from "../components/TournamentType";
 import { Grid } from "@material-ui/core";
-import koTournamentImage from "../images/ko-turnier.jpg";
-import roundTournamentImage from "../images/runden-turnier.jpg";
 import NavBar from "../components/NavBar";
+
 
 /*
     Besteht aus:
@@ -21,12 +20,22 @@ import NavBar from "../components/NavBar";
     |- TournamentType
 
 */
-class TournamentPreview extends React.Component {
-  render() {
-    const gridItemStyle = {
-      //width: "100%",
-      marginTop: "20px",
-    };
+function TournamentPreview(props) {
+  const ttypes = [
+    {
+      tournamentType:"ko",
+      name:"K.O. Turnier",
+      src:"../images/ko-turnier.jpg",
+      linkTo:"/createKnockoutTournament"
+    },
+    {
+      tournamentType:"round",
+      name:"Rundenturnier",
+      src:"../images/runden-turnier.jpg",
+      linkTo:"/createRoundTournament"
+    }
+  ]
+
     return (
       <>
         <NavBar
@@ -35,20 +44,20 @@ class TournamentPreview extends React.Component {
           rightSide="menu"
         />
         <Grid container direction="row" spacing={3} justify="center">
-          <TournamnetType
-            tournamentType="ko"
-            name="K.O. Turnier"
-            src={koTournamentImage}
-          />
-          <TournamnetType
-            tournamentType="round"
-            name="Rundenturnier"
-            src={roundTournamentImage}
-          />
+          {ttypes.map(
+            (ttype, index) => (
+              <TournamnetType
+                key={index}
+                tournamentType={ttype.tournamentType}
+                name={ttype.name}
+                src={ttype.src}
+                to={ttype.linkTo}
+              />
+            )
+          )}
         </Grid>
       </>
-    );
-  }
+    )
 }
 
 export default TournamentPreview;
