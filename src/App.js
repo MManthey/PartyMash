@@ -17,9 +17,20 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: "#1BB55C",
+      contrastText: "#fff",
     },
     selected: {
       background: "#0E4DA4",
+    },
+  },
+  typography: {
+    fontFamily: ["Inter"].join(","),
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: 15,
+      },
     },
   },
 });

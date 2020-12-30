@@ -43,7 +43,7 @@ function Home() {
             style={{ marginBottom: 60 }}
             to="/"
           >
-            <Typography variant="h6">Code eingeben</Typography>
+            <Typography variant="button">Code eingeben</Typography>
           </Button>
         </Grid>
         <Grid item>
@@ -55,7 +55,7 @@ function Home() {
             component={Link}
             to="/tournamentPreview"
           >
-            <Typography variant="h6">Turnier Erstellen</Typography>
+            <Typography variant="button">Turnier Erstellen</Typography>
           </Button>
         </Grid>
       </Grid>

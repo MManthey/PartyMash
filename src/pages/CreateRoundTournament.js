@@ -5,13 +5,13 @@ import { Typography } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import GroupedButtons from "../components/GroupedButtons";
+import SettingsElement from "../components/SettingsElement";
 
 const useStyles = makeStyles((theme) => ({
   button: {
     height: 60,
+    width: 300,
   },
   root: {
     paddingLeft: 32,
@@ -19,8 +19,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function renderSettings(items) {
+  return items.map((item) => (
+    <Grid item>
+      <SettingsElement text={item.text} controlElement={item.controlElement} />
+    </Grid>
+  ));
+}
+
 function CreateRoundTournament() {
   const classes = useStyles();
+
+  const settingElementsTop = [
+    { text: "Anzahl Turnierrunden", controlElement: "incrementer" },
+    { text: "Teams erlauben", controlElement: "switch" },
+    { text: "Teamgröße beschränken", controlElement: "switch" },
+    { text: "Max. Teamgröße", controlElement: "incrementer" },
+  ];
+
+  const settingElementsMiddle = [
+    { text: "Punkte für Sieg", controlElement: "incrementer" },
+    { text: "Punkte für Unentschieden", controlElement: "incrementer" },
+    { text: "Punkte für Niederlage", controlElement: "incrementer" },
+  ];
+
+  const settingElementsBottom = [
+    { text: "Anzahl der Parallelen Spiele", controlElement: "incrementer" },
+  ];
 
   return (
     <div>
@@ -37,56 +62,26 @@ function CreateRoundTournament() {
         alignItems="stretch"
         spacing={6}
       >
+        {renderSettings(settingElementsTop)}
+        <Divider variant="middle" />
+        {renderSettings(settingElementsMiddle)}
+        <Divider variant="middle" />
+        {renderSettings(settingElementsBottom)}
+      </Grid>
+      <Grid container justify="center">
         <Grid item>
-          <Typography>Turnierrunden</Typography>
-        </Grid>
-        <Grid item>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            wrap="nowrap"
-            justify="space-between"
+          <Button
+            className={classes.button}
+            color="secondary"
+            variant="contained"
+            size="large"
+            component={Link}
+            to="/teamZuordnen"
           >
-            <Grid item>
-              <Typography>Teams erlauben</Typography>
-            </Grid>
-            <Grid item>
-              <GroupedButtons />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item>
-          <Typography>Teamgröße beschränken</Typography>
-        </Grid>
-        <Grid item>
-          <Typography>Max. Teamgröße</Typography>
-        </Grid>
-        <Divider variant="middle" />
-        <Grid item>
-          <Typography>Punkte für Sieg</Typography>
-        </Grid>
-        <Grid item>
-          <Typography>Punkte für Unentschieden</Typography>
-        </Grid>
-        <Grid item>
-          <Typography>Punkte für Niederlage</Typography>
-        </Grid>
-        <Divider variant="middle" />
-        <Grid item>
-          <Typography>Anzahl der Parallelen Spiele</Typography>
+            <Typography variant="h6">Lobby erstellen</Typography>
+          </Button>
         </Grid>
       </Grid>
-      <Button
-        className={classes.button}
-        color="secondary"
-        variant="contained"
-        size="large"
-        component={Link}
-        to="/teamZuordnen"
-      >
-        <Typography variant="h6">Lobby erstellen</Typography>
-      </Button>
     </div>
   );
 }
