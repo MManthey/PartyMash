@@ -8,36 +8,52 @@ import TournamentPreview from "./pages/TournamentPreview";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import GlobalSettings from "./pages/GlobalSettings";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#0E4DA4",
-      background: "#0E4DA4",
-    },
-    secondary: {
-      main: "#1BB55C",
-      contrastText: "#fff",
-    },
-    selected: {
-      background: "#0E4DA4",
-    },
-  },
-  typography: {
-    fontFamily: ["Inter"].join(","),
-  },
-  overrides: {
-    MuiButton: {
-      root: {
-        borderRadius: 15,
-      },
-    },
-  },
-});
+import { useState } from "react";
+import ToggleSwitch from "@material-ui/core/Switch";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
+  const [darkState, setDarkState] = useState(false);
+
+  const palletType = darkState ? "dark" : "light";
+
+  const handleThemeChange = () => {
+    setDarkState(!darkState);
+  };
+
+  const theme = createMuiTheme({
+    palette: {
+      type: palletType,
+      primary: {
+        main: "#0E4DA4",
+        background: "#0E4DA4",
+      },
+      secondary: {
+        main: "#1BB55C",
+        contrastText: "#fff",
+      },
+      selected: {
+        background: "#0E4DA4",
+      },
+    },
+    typography: {
+      fontFamily: ["Inter"].join(","),
+    },
+    overrides: {
+      MuiButton: {
+        root: {
+          borderRadius: 15,
+        },
+      },
+    },
+  });
+
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ToggleSwitch checked={darkState} onChange={handleThemeChange} /> Dark
+      Mode
+      {/** TODO wie state in subcomponente durch router hindurch */}
       <Router>
         <div>
           <Switch>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -17,7 +18,6 @@ function Home() {
   const navBarMenuItems = [{ name: "Einstellungen", path: "/globalSettings" }];
 
   return (
-    //TODO: Navigate Back option
     <div>
       <NavBar
         leftSide="avatar"
@@ -26,39 +26,35 @@ function Home() {
         rightSide="menu"
         menuItems={navBarMenuItems}
       />
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        style={{ minHeight: "70vh" }}
-      >
-        <Grid item>
-          <Button
-            className={classes.button}
-            color="primary"
-            variant="contained"
-            size="large"
-            component={Link}
-            style={{ marginBottom: 60 }}
-            to="/"
-          >
-            <Typography variant="button">Code eingeben</Typography>
-          </Button>
+      <Box my={6}>
+        <Grid container direction="column" justify="center" alignItems="center">
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="large"
+              component={Link}
+              style={{ marginBottom: 60 }}
+              to="/"
+            >
+              <Typography variant="button">Code eingeben</Typography>
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="large"
+              component={Link}
+              to="/tournamentPreview"
+            >
+              <Typography variant="button">Turnier Erstellen</Typography>
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Button
-            className={classes.button}
-            color="primary"
-            variant="contained"
-            size="large"
-            component={Link}
-            to="/tournamentPreview"
-          >
-            <Typography variant="button">Turnier Erstellen</Typography>
-          </Button>
-        </Grid>
-      </Grid>
+      </Box>
     </div>
   );
 }

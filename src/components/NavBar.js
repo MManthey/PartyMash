@@ -12,6 +12,8 @@ import logo from "../images/partymash_logo_small.png";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link, useHistory } from "react-router-dom";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "24px",
     height: "24px",
-    paddingRight: "16px",
   },
 }));
 
@@ -121,14 +122,30 @@ export default function NavBar(props) {
 
   function renderMiddleNavBar(props) {
     return (
-      <div className={classes.middleNavBar}>
-        {props.logo && <img src={logo} alt="logo" className={classes.logo} />}
-        {props.text && (
-          <Typography variant="h6" align="center">
-            {props.text}
-          </Typography>
-        )}
-      </div>
+      <Grid
+        container
+        direction="row"
+        alignItems="center"
+        wrap="nowrap"
+        justify="space-between"
+      >
+        <div className={classes.middleNavBar}>
+          {props.logo && (
+            <Grid item>
+              <Box mr={2}>
+                <img src={logo} alt="logo" className={classes.logo} />
+              </Box>
+            </Grid>
+          )}
+          {props.text && (
+            <Grid item>
+              <Typography variant="h6" align="center">
+                {props.text}
+              </Typography>
+            </Grid>
+          )}
+        </div>
+      </Grid>
     );
   }
 
