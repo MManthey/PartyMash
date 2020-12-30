@@ -17,13 +17,13 @@ function TeamZuordnenPage() {
       <NavBar leftSide="arrow" text="Team Zuordnung" rightSide="menu" />
       <div style={pageStyle}>
         <div style={rowStyle}>
-          <TeamRow></TeamRow>
+          <TeamRow status="new"></TeamRow>
         </div>
         <div style={rowStyle}>
-          <TeamRow></TeamRow>
+          <TeamRow status="waiting"></TeamRow>
         </div>
         <div style={rowStyle}>
-          <TeamRow></TeamRow>
+          <TeamRow status="ready"></TeamRow>
         </div>
       </div>
     </>
