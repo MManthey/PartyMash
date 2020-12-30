@@ -6,43 +6,16 @@ import ModalOverlay from "./ModalOverlay";
 import { Link } from "react-router-dom";
 
 function TournamentType(props) {
-  //const history = useHistory()
-  console.log(props)
-    
-  const [modalKO, setModalKO] = React.useState(false);
-  const [modalRound, setModalRound] = React.useState(false);
-  const [modalInfo, setModalInfo] = React.useState("");
 
-  const handleOpen = (event) => {
-    setModalInfo(event.currentTarget.name);
-    console.log(modalKO);
-    console.log(modalRound);
+  const [modalVisible, setModal] = React.useState(false);
 
-    event.currentTarget.name === "ko" ? setModalKO(true) : setModalRound(true);
-    console.log("open moadl");
-    console.log(event.currentTarget.name);
-    console.log(modalKO);
-    console.log(modalRound);
+  const handleOpen = () => {
+    setModal(true)
   };
 
   const handleClose = () => {
-    setModalKO(false);
-    setModalRound(false);
-    console.log("hadnle clode");
-  };
-
-  const handleClick = (event) => {
-    if (event.currentTarget.type === "button") {
-      //Es gibt jetzt 2 verschieden createTournament Seiten
-      //Hab das mit dem Navigieren bis jetzt ohne history push gemacht sondern nur mit
-      //component={Link} und to=... wo ist der unterschied/vorteil? -Michi
-    //   history.push("/createRoundTournament", {
-    //     type: event.currentTarget.name,
-    //   });
-    } else {
-      //image clicked
-      handleOpen(event);
-    }
+    setModal(false);
+    console.log("CLOSE")
   };
 
   const gridItemStyle = {
@@ -71,14 +44,16 @@ function TournamentType(props) {
       alignItems="center"
     >
       <Grid item xs={12} style={gridItemStyle}>
-        <div style={wrapperStyle}>
+        <div
+          style={wrapperStyle}
+          onMouseDown={handleOpen}
+          >
           <InfoIconOutlined fontSize="large" style={infoIconStyle} />
           <img
             name={props.tournamentType}
             alt={props.name}
             width="100%"
-            src="https://picsum.photos/600/400"
-            onMouseDown={handleClick}
+            src="https://picsum.photos/600/400"            
           />
         </div>
       </Grid>
@@ -93,7 +68,14 @@ function TournamentType(props) {
           {props.name}
         </Button>
       </Grid>
-      <ModalOverlay show={modalKO} exit={handleClose} info={modalInfo} />
+      <ModalOverlay
+        open={modalVisible}
+        onClose={handleClose}
+        title={props.name}
+        infoText={props.infoText}
+        pros={props.pros}
+        cons={props.cons}
+      />
     </Grid>
   );
 }

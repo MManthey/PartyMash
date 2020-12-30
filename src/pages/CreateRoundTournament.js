@@ -28,8 +28,12 @@ const useStyles = makeStyles((theme) => ({
 
 function renderSettings(items) {
   return items.map((item) => (
-    <Grid item>
+    <Grid 
+      key={item.id}
+      item
+    >
       <SettingsElement
+        key={item.id}
         id={item.id}
         text={item.text}
         controlElement={item.controlElement}

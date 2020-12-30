@@ -2,11 +2,11 @@ import React from "react";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import ProConItem from "./ProConItem"
+
 
 function ModalOverlay(props) {
-  const hello = () => {
-    console.log("hello");
-  };
 
   const useStyles = makeStyles((theme) => ({
     modal: {
@@ -30,12 +30,45 @@ function ModalOverlay(props) {
     <Dialog
       aria-labelledby="simple-dialog-title"
       className={classes.modal}
-      open={props.show}
-      onClose={props.handleClose}
+      open={props.open}
+      onClose={props.onClose}
     >
-      <DialogTitle id="simple-dialog-title">{props.info}</DialogTitle>
-      <button onClick={hello}>close</button>
-    </Dialog>
+      <DialogTitle id="simple-dialog-title">{props.title}</DialogTitle>
+      <p>{props.infoText}</p>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        wrap="nowrap"
+        justify="space-between"
+      >
+      {props.pros.map((pro) => (
+        <ProConItem 
+          key={pro.id}
+          textDecoration="+" 
+          value={pro.value} 
+        >
+        </ProConItem>
+      ))}
+    </Grid>
+    <Grid
+        container
+        direction="column"
+        alignItems="center"
+        wrap="nowrap"
+        justify="space-between"
+      >
+      {props.cons.map((con) => (
+        <ProConItem 
+          key={con.id}
+          textDecoration="-" 
+          value={con.value} 
+        >
+        </ProConItem>
+      ))}
+    </Grid>
+      
+  </Dialog>
   );
 }
 
