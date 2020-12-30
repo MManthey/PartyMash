@@ -37,12 +37,31 @@ function App() {
       },
     },
     typography: {
-      fontFamily: ["Inter"].join(","),
+      fontFamily: ["Inter", "sans-serif", "Roboto"].join(","),
+      button: {
+        fontSize: "1.25rem",
+        fontWeight: "600",
+      },
+      h1: {
+        fontSize: "1.4rem",
+        fontWeight: "600",
+      },
+      body1: {
+        fontWeight: "400",
+      },
     },
     overrides: {
       MuiButton: {
         root: {
           borderRadius: 15,
+        },
+      },
+      MuiFab: {
+        sizeSmall: {
+          maxHeight: "30px",
+          minHeight: "30px",
+          minWidth: "30px",
+          maxWidth: "30px",
         },
       },
     },
