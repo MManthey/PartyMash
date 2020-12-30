@@ -3,11 +3,14 @@ import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import GameTable from './GameTable';
-import Notifications from './Notifications';
+import Notification from "./Notification";
 
 const useStyles = makeStyles({
   root: {
-    padding: "30px",
+    padding: "25px",
+  },
+  alerts: {
+    paddingBottom: "30px",
   },
 });
 
@@ -17,7 +20,11 @@ function Games({ games, notifications }) {
 
   return (
     <Container className={classes.root}>
-      <Notifications notifications={notifications} />
+      <div className={classes.alerts}>
+        {notifications.map((notification) => (
+          <Notification notification={notification} />
+        ))}
+      </div>
       <Typography variant="h6" gutterBottom>
         Laufende Spiele
       </Typography>
