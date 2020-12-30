@@ -56,6 +56,14 @@ function App() {
           borderRadius: 15,
         },
       },
+      MuiFab: {
+        sizeSmall: {
+          maxHeight: "30px",
+          minHeight: "30px",
+          minWidth: "30px",
+          maxWidth: "30px",
+        },
+      },
     },
   });
 

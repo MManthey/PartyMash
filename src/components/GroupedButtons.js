@@ -2,43 +2,37 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { withStyles } from "@material-ui/core/styles";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 const styles = (theme) => ({
-  button: {
-    borderRadius: 50,
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
   label: {
-    padding: 10,
-  }
+    padding: 12,
+  },
 });
 
 class GroupedButtons extends React.Component {
   state = {
     counter: 1,
     maxDisabled: false,
-    minDisabled: false
+    minDisabled: false,
   };
-  
+
   disableButtons() {
     this.state.counter + 1 >= this.props.maxValue
-      ? 
-      this.setState((prevState) => ({ maxDisabled: true}))
-      :
-      this.setState((prevState) => ({ maxDisabled: false}));
+      ? this.setState((prevState) => ({ maxDisabled: true }))
+      : this.setState((prevState) => ({ maxDisabled: false }));
 
     this.state.counter - 1 <= this.props.minValue
-      ? 
-      this.setState((prevState) => ({ minDisabled: true}))
-      :
-      this.setState((prevState) => ({ minDisabled: false}));
-      console.log(this.state.counter)
+      ? this.setState((prevState) => ({ minDisabled: true }))
+      : this.setState((prevState) => ({ minDisabled: false }));
+    console.log(this.state.counter);
   }
 
   handleIncrement = (event) => {
-    this.setState((prevState) => ({ counter: prevState.counter + 1 }))
-    this.disableButtons()   
+    this.setState((prevState) => ({ counter: prevState.counter + 1 }));
+    this.disableButtons();
   };
 
   handleDecrement = () => {
@@ -55,29 +49,26 @@ class GroupedButtons extends React.Component {
       //   aria-label="small outlined button group"
       // >
       <>
-        <Button
+        <Fab
+          size="small"
           onClick={this.handleDecrement}
-          variant="contained"
           color="primary"
-          className={classes.button}
+          // className={classes.button}
           disabled={this.state.minDisabled}
-
-          >
-          -
-        </Button>
-          <label
-            className={classes.label}  
-          >{this.state.counter}</label>
-        <Button
+        >
+          <RemoveIcon fontSize="small" />
+        </Fab>
+        <label className={classes.label}>{this.state.counter}</label>
+        <Fab
+          size="small"
           key={this.props.id}
-          variant="contained"
           color="primary"
           onClick={this.handleIncrement}
-          className={classes.button}
+          // className={classes.button}
           disabled={this.state.maxDisabled}
         >
-          +
-        </Button>
+          <AddIcon fontSize="small" />
+        </Fab>
       </>
     );
   }
