@@ -37,7 +37,18 @@ function App() {
       },
     },
     typography: {
-      fontFamily: ["Inter"].join(","),
+      fontFamily: ["Inter", "sans-serif", "Roboto"].join(","),
+      button: {
+        fontSize: "18.8px",
+        fontWeight: "600",
+      },
+      h1: {
+        fontSize: "20px",
+        fontWeight: "600",
+      },
+      body1: {
+        fontWeight: "400",
+      },
     },
     overrides: {
       MuiButton: {

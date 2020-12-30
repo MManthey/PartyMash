@@ -139,7 +139,7 @@ export default function NavBar(props) {
           )}
           {props.text && (
             <Grid item>
-              <Typography variant="h6" align="center">
+              <Typography variant="h1" align="center">
                 {props.text}
               </Typography>
             </Grid>

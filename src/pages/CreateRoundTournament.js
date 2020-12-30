@@ -135,7 +135,7 @@ function CreateRoundTournament() {
                 component={Link}
                 to="/teamZuordnen"
               >
-                <Typography variant="h6">Lobby erstellen</Typography>
+                <Typography variant="button">Lobby erstellen</Typography>
               </Button>
             </Box>
           </Grid>
