@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function TournamentType(props) {
   //const history = useHistory()
+  console.log(props)
     
   const [modalKO, setModalKO] = React.useState(false);
   const [modalRound, setModalRound] = React.useState(false);
@@ -47,8 +48,8 @@ function TournamentType(props) {
   const gridItemStyle = {
     //width:"100%",
     // height: "auto",
-    marginTop: "20px",
-    wrap: "nowrap",
+    // marginTop: "20px",
+    // wrap: "nowrap",
   };
   const infoIconStyle = {
     position: "absolute",

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 function renderSettings(items) {
   return items.map((item) => (
     <Grid item>
-      <SettingsElement text={item.text} controlElement={item.controlElement} />
+      <SettingsElement id={item.id} text={item.text} controlElement={item.controlElement} maxValue={item.maxValue} minValue={item.minValue} />
     </Grid>
   ));
 }
@@ -31,20 +31,20 @@ function CreateRoundTournament() {
   const classes = useStyles();
 
   const settingElementsTop = [
-    { text: "Anzahl Turnierrunden", controlElement: "incrementer" },
-    { text: "Teams erlauben", controlElement: "switch" },
-    { text: "Teamgröße beschränken", controlElement: "switch" },
-    { text: "Max. Teamgröße", controlElement: "incrementer" },
+    { id: 1, text: "Anzahl Turnierrunden", controlElement: "incrementer", maxValue: 10, minValue: 0 },
+    { id: 2, text: "Teams erlauben", controlElement: "switch" },
+    { id: 3, text: "Teamgröße beschränken", controlElement: "switch" },
+    { id: 4, text: "Max. Teamgröße", controlElement: "incrementer", maxValue: 10, minValue: 0 },
   ];
 
   const settingElementsMiddle = [
-    { text: "Punkte für Sieg", controlElement: "incrementer" },
-    { text: "Punkte für Unentschieden", controlElement: "incrementer" },
-    { text: "Punkte für Niederlage", controlElement: "incrementer" },
+    { id: 100, text: "Punkte für Sieg", controlElement: "incrementer", maxValue: 10, minValue: 0 },
+    { id: 101, text: "Punkte für Unentschieden", controlElement: "incrementer", maxValue: 10, minValue: 0 },
+    { id: 102, text: "Punkte für Niederlage", controlElement: "incrementer", maxValue: 10, minValue: 0 },
   ];
 
   const settingElementsBottom = [
-    { text: "Anzahl der Parallelen Spiele", controlElement: "incrementer" },
+    { id: 103, text: "Anzahl der Parallelen Spiele", controlElement: "incrementer", maxValue: 10, minValue: 0 },
   ];
 
   return (

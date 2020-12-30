@@ -21,11 +21,12 @@ function SettingsElement(props) {
     });
   };
 
-  function renderControlElement(controlElement) {
-    switch (controlElement) {
+  function renderControlElement(props) {
+    switch (props.controlElement) {
       case "switch":
         return (
           <Switch
+            key={props.id}
             checked={state.checked}
             onChange={handleChange}
             color="primary"
@@ -34,7 +35,7 @@ function SettingsElement(props) {
           />
         );
       case "incrementer":
-        return <GroupedButtons />;
+        return <GroupedButtons id={props.id} maxValue={props.maxValue} minValue={props.minValue}/>;
       default:
         return null;
     }
@@ -52,7 +53,7 @@ function SettingsElement(props) {
         <Grid item>
           <Typography>{props.text}</Typography>
         </Grid>
-        <Grid item>{renderControlElement(props.controlElement)}</Grid>
+        <Grid item>{renderControlElement(props)}</Grid>
       </Grid>
     </>
   );

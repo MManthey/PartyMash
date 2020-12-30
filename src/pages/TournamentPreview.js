@@ -51,7 +51,7 @@ function TournamentPreview(props) {
                 tournamentType={ttype.tournamentType}
                 name={ttype.name}
                 src={ttype.src}
-                to={ttype.linkTo}
+                linkTo={ttype.linkTo}
               />
             )
           )}
