@@ -18,6 +18,20 @@ const useStyles = makeStyles({
   },
 });
 
+const testGame = {
+  "mode" : "K.O.",
+  "settings" : {
+    "allowTeams" : true,
+    "maxTeamSize" : 2,
+    "isDoubleElim" : false,
+    "numOfParallelGames" : 3,
+  },
+  "teams" : [
+    ["John Doe", "Max Mustermann"]
+    ["Klaus Kleber"]
+  ]
+};
+
 const testGames = [
   {
     "p1": "Team 1",
@@ -53,17 +67,16 @@ const testGames = [
 
 const testNotifications = [
   {
-    "message": "In 3 Spielen trittst du gegen Team 7 an!",
+    "message" : "In 3 Spielen spielst Du!",
+    "open" : true,
   }
 ]
-
 
 function TournamentOverview() {
 
   const classes = useStyles();
   const [tabIndex, setTabIndex] = React.useState(0);
   const [games, setGames] = React.useState(testGames);
-  const [notifications, setNotifications] = React.useState(testNotifications);
 
   const handleChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
@@ -77,8 +90,8 @@ function TournamentOverview() {
           value={tabIndex}
           onChange={handleChange}
           variant="fullWidth"
-          indicatorColor="secondary"
-          textColor="secondary"
+          indicatorColor="primary"
+          textColor="primary"
           aria-label="icon label tabs example"
         >
           <Tab icon={<VideogameAsset />} label="Spiele" />
@@ -86,7 +99,7 @@ function TournamentOverview() {
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
-      {tabIndex === 0 ? <Games games={games} notifications={notifications}/> : tabIndex === 1 ? <Table /> : <Ranking />}
+      {tabIndex === 0 ? <Games games={games} notifications={testNotifications} /> : tabIndex === 1 ? <Table /> : <Ranking />}
     </>
   );
 }
