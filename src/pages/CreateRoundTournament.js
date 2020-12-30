@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 32,
     paddingRight: 32,
   },
+  grid: {
+    marginTop: 16,
+    marginBottom: 16,
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
 }));
 
 function renderSettings(items) {
@@ -55,7 +61,7 @@ function CreateRoundTournament() {
         rightSide="info"
       />
       <Grid
-        style={{ marginTop: 16, marginBottom: 16 }}
+        className={classes.grid}
         container
         direction="column"
         justify="space-evenly"

@@ -33,7 +33,7 @@ class GroupedButtons extends React.Component {
       this.setState((prevState) => ({ minDisabled: true}))
       :
       this.setState((prevState) => ({ minDisabled: false}));
-      console.log(this.props)
+      console.log(this.state.counter)
   }
 
   handleIncrement = (event) => {
