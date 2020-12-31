@@ -70,14 +70,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ToggleSwitch checked={darkState} onChange={handleThemeChange} /> Dark
-      Mode
-      {/** TODO wie state in subcomponente durch router hindurch */}
       <Router>
         <div>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/globalSettings" component={GlobalSettings} />
+            <Route
+              path="/globalSettings"
+              render={(props) => (
+                <GlobalSettings
+                  {...props}
+                  checked={darkState}
+                  onChange={handleThemeChange}
+                />
+              )}
+            />
             <Route path="/tournamentOverview" component={TournamentOverview} />
             <Route path="/teamZuordnen" component={TeamZuordnenPage} />
             <Route path="/tournamentPreview" component={TournamentPreview} />

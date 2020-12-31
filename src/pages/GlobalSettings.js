@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Grid from "@material-ui/core/Grid";
 import SettingsElement from "../components/SettingsElement";
+import Switch from "@material-ui/core/Switch";
 
 function renderSettings(items) {
   return items.map((item) => (
@@ -11,7 +12,7 @@ function renderSettings(items) {
   ));
 }
 
-function GlobalSettings() {
+function GlobalSettings(props) {
   const settingElements = [{ text: "Dark-Mode", controlElement: "switch" }];
   return (
     <div>
@@ -24,7 +25,15 @@ function GlobalSettings() {
         alignItems="stretch"
         spacing={6}
       >
-        {renderSettings(settingElements)}
+        <Grid item>
+          <SettingsElement text="Dark-Mode" />
+          <Switch
+            checked={props.checked}
+            onChange={props.onChange}
+            color="primary"
+            name="Dark-Mode"
+          />
+        </Grid>
       </Grid>
     </div>
   );
