@@ -1,5 +1,4 @@
 import React from 'react';
-//import Avatar from '../user/Avatar';
 import { makeStyles } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import { AvatarGroup } from '@material-ui/lab';
@@ -23,13 +22,13 @@ function TeamRow(data){
         
         
     };
-    if(data.status == "ready"){
+    if(data.status === "ready"){
         containerStyle.border = "3px solid #1BB55C"
     }
-    else if(data.status == "waiting"){
+    else if(data.status === "waiting"){
         containerStyle.border = "3px solid #FFBB12"
     }
-    else if(data.status == "new"){
+    else if(data.status === "new"){
         containerStyle.border = "3px dashed #979797"
     }
 

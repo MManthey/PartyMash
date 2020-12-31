@@ -1,6 +1,7 @@
 import React from "react";
 import TeamRow from "../components/teams/TeamRow";
 import NavBar from "../components/NavBar";
+import BottomDrawer from "../components/drawer/BottomDrawer";
 
 function TeamZuordnenPage() {
   const pageStyle = {
@@ -26,6 +27,7 @@ function TeamZuordnenPage() {
           <TeamRow status="ready"></TeamRow>
         </div>
       </div>
+      <BottomDrawer></BottomDrawer>
     </>
   );
 }
