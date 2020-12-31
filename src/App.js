@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import GlobalSettings from "./pages/GlobalSettings";
 import { useState } from "react";
-import ToggleSwitch from "@material-ui/core/Switch";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
@@ -48,6 +47,7 @@ function App() {
       },
       body1: {
         fontWeight: "400",
+        fontSize: "1.1rem",
       },
     },
     overrides: {
