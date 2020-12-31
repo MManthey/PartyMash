@@ -65,6 +65,57 @@ const testGames = [
   },
 ];
 
+const testStandings = [
+  {
+    "name": "Team 1",
+    "points": 0,
+  },
+  {
+    "name": "Team 2",
+    "points": 0,
+  },
+  {
+    "name": "Team 3",
+    "points": 0,
+  },
+  {
+    "name": "Team 4",
+    "points": 0,
+  },
+  {
+    "name": "Team 5",
+    "points": 0,
+  },
+  {
+    "name": "Team 6",
+    "points": 0,
+  },
+  {
+    "name": "Team 7",
+    "points": 0,
+  },
+  {
+    "name": "Team 8",
+    "points": 0,
+  },
+  {
+    "name": "Team 9",
+    "points": 0,
+  },
+  {
+    "name": "Team 10",
+    "points": 0,
+  },
+  {
+    "name": "Team 11",
+    "points": 0,
+  },
+  {
+    "name": "Team 12",
+    "points": 0,
+  },
+];
+
 const testNotifications = [
   {
     "message" : "In 3 Spielen spielst Du!",
@@ -99,7 +150,7 @@ function TournamentOverview() {
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
-      {tabIndex === 0 ? <Games games={games} notifications={testNotifications} /> : tabIndex === 1 ? <Table /> : <Ranking />}
+      {tabIndex === 0 ? <Games games={games} notifications={testNotifications} /> : tabIndex === 1 ? <Table /> : <Ranking ranking={testStandings}/>}
     </>
   );
 }

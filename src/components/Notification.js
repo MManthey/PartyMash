@@ -11,18 +11,19 @@ function Notification(props) {
     <Collapse in={open}>
       <Alert
         variant="filled"
-        action={
-          <IconButton
-            aria-label="close"
-            color="inherit"
-            size="small"
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
-            <CloseIcon fontSize="inherit" />
-          </IconButton>
-        }
+        severity="info"
+        // action={
+        //   <IconButton
+        //     aria-label="close"
+        //     color="inherit"
+        //     size="small"
+        //     onClick={() => {
+        //       setOpen(false);
+        //     }}
+        //   >
+        //     <CloseIcon fontSize="inherit" />
+        //   </IconButton>
+        // }
       >
         {props.notification.message}
       </Alert>
