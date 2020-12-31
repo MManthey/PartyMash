@@ -39,7 +39,7 @@ function App() {
     typography: {
       fontFamily: ["Inter", "sans-serif", "Roboto"].join(","),
       button: {
-        fontSize: "1.25rem",
+        fontSize: "1.2rem",
         fontWeight: "600",
       },
       h1: {

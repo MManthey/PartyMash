@@ -14,6 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Link, useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "24px",
     height: "24px",
+  },
+  small: {
+    width: theme.spacing(4),
+    height: theme.spacing(4),
   },
 }));
 
@@ -69,7 +74,11 @@ export default function NavBar(props) {
             className={classes.menuButton}
             color="inherit"
           >
-            <AccountCircleIcon />
+            <Avatar
+              // src="/userImages/avatar.png"
+              alt="PB"
+              className={classes.small}
+            ></Avatar>
           </IconButton>
         );
       default:
@@ -111,6 +120,13 @@ export default function NavBar(props) {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
+              <MenuItem
+                component={Link}
+                to="/globalSettings"
+                onClick={handleClose}
+              >
+                Einstellungen
+              </MenuItem>
               {props.menuItems && menuItems(props.menuItems)}
             </Menu>
           </>
@@ -139,7 +155,7 @@ export default function NavBar(props) {
           )}
           {props.text && (
             <Grid item>
-              <Typography variant="h1" align="center">
+              <Typography noWrap={true} variant="h1" align="center">
                 {props.text}
               </Typography>
             </Grid>
