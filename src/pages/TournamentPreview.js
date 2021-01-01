@@ -34,7 +34,7 @@ function TournamentPreview(props) {
       ],
       cons: [
         {id: 10, value: "Wenig Turniererfahrung"},
-        {id: 11, value: "Schnelled ausscheiden möglich"},
+        {id: 11, value: "Schnellea ausscheiden möglich"},
         {id: 12, value: "Für viele Teilnehmer wird kein Rang ermittelt"},
       ]
     },
@@ -50,7 +50,7 @@ function TournamentPreview(props) {
       ],
       cons: [
         {id: 10, value: "Viele Spiele notwendig"},
-        {id: 11, value: "Schnelled ausscheiden möglich"},
+        {id: 11, value: "Schnelles ausscheiden möglich"},
         {id: 12, value: "Für viele Teilnehmer wird kein Rang ermittelt"},
       ]
     }

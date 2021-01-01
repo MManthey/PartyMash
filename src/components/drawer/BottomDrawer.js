@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import Avatar from '@material-ui/core/Avatar'
 
-function BottomDrawer(){
+function BottomDrawer(props){
     const drawerStyle = {
         position: "fixed", 
         bottom: "-15px",
@@ -23,7 +23,7 @@ function BottomDrawer(){
     }
     
     return (
-        <div style={drawerStyle}>
+        <div style={drawerStyle} onMouseDown={props.open}>
             <Typography variant="h1">Ziehe dich in dein Team!</Typography>
             <Avatar style={avatarStyle} src="/userImages/avatar.png" alt="PB"/>
         </div>
