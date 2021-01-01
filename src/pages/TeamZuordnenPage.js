@@ -12,19 +12,34 @@ function TeamZuordnenPage() {
   const rowStyle = {
     paddingBottom: "20px",
   };
+
+  const fullTeam = [
+    "/userImages/avatar4.jpg",
+    "/userImages/avatar5.jpg",
+    "/userImages/avatar6.jpg"
+  ]
+
+  const notFullTeam = [
+    "/userImages/avatar7.jpg",
+    "/userImages/avatar8.jpg"
+  ]
+  const emptyTeam = [
+
+  ]
+
   //TODO Add footer
   return (
     <>
       <NavBar leftSide="arrow" text="Team Zuordnung" rightSide="menu" />
       <div style={pageStyle}>
         <div style={rowStyle}>
-          <TeamRow status="new"></TeamRow>
+          <TeamRow players={emptyTeam}></TeamRow>
         </div>
         <div style={rowStyle}>
-          <TeamRow status="waiting"></TeamRow>
+          <TeamRow players={notFullTeam}></TeamRow>
         </div>
         <div style={rowStyle}>
-          <TeamRow status="ready"></TeamRow>
+          <TeamRow players={fullTeam}></TeamRow>
         </div>
       </div>
       <BottomDrawer></BottomDrawer>
