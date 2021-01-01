@@ -1,18 +1,17 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar'
-import { AvatarGroup } from '@material-ui/lab';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 
 const maxPlayerSize = 3;
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
     },
-  }));
+  },
+}));
 
 function TeamRow(data){
     const containerStyle = {
@@ -26,13 +25,13 @@ function TeamRow(data){
 
     console.log(data.players.length);
 
-    if(data.players.length == maxPlayerSize){
+    if(data.players.length === maxPlayerSize){
         containerStyle.border = "3px solid #1BB55C"
     }
     else if(data.players.length > 0 && data.players.length < maxPlayerSize){
         containerStyle.border = "3px solid #FFBB12"
     }
-    else if(data.players.length == 0){
+    else if(data.players.length === 0){
         containerStyle.border = "3px dashed #979797"
     }
     const classes = useStyles();

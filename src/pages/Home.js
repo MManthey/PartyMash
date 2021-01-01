@@ -10,12 +10,12 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles((theme) => ({
   button: {
     height: 150,
+    width: "50vw",
   },
 }));
 
 function Home() {
   const classes = useStyles();
-  const navBarMenuItems = [{ name: "Einstellungen", path: "/globalSettings" }];
 
   return (
     <div>
@@ -24,23 +24,19 @@ function Home() {
         text="Party Mash"
         logo={true}
         rightSide="menu"
-        menuItems={navBarMenuItems}
       />
-      <Box my={6}>
-        <Grid container direction="column" justify="center" alignItems="center">
-          <Grid item>
-            <Button
-              className={classes.button}
-              color="primary"
-              variant="contained"
-              size="large"
-              component={Link}
-              style={{ marginBottom: 60 }}
-              to="/"
-            >
-              <Typography variant="button">Code eingeben</Typography>
-            </Button>
-          </Grid>
+      <Box mt="15vh">
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          spacing={6}
+          style={{
+            margin: 0,
+            width: "100%",
+          }}
+        >
           <Grid item>
             <Button
               className={classes.button}
@@ -50,7 +46,23 @@ function Home() {
               component={Link}
               to="/tournamentPreview"
             >
-              <Typography variant="button">Turnier Erstellen</Typography>
+              <Typography noWrap={true} variant="button">
+                Turnier Erstellen
+              </Typography>
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="large"
+              component={Link}
+              to="/"
+            >
+              <Typography noWrap={true} variant="button">
+                Code eingeben
+              </Typography>
             </Button>
           </Grid>
         </Grid>

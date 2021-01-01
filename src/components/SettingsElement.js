@@ -1,14 +1,14 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import GroupedButtons from "./GroupedButtons";
 import Switch from "@material-ui/core/Switch";
 
-const useStyles = makeStyles({});
+// const useStyles = makeStyles({});
 
 function SettingsElement(props) {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [state, setState] = React.useState({
     checked: true,
@@ -31,11 +31,17 @@ function SettingsElement(props) {
             onChange={handleChange}
             color="primary"
             name="checked"
-            inputProps={{ "aria-label": "primary checkbox" }}
+            inputProps={{ "aria-label": "Settings" }}
           />
         );
       case "incrementer":
-        return <GroupedButtons id={props.id} maxValue={props.maxValue} minValue={props.minValue}/>;
+        return (
+          <GroupedButtons
+            id={props.id}
+            maxValue={props.maxValue}
+            minValue={props.minValue}
+          />
+        );
       default:
         return null;
     }
