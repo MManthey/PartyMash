@@ -1,11 +1,19 @@
 import React from "react";
-import { Button, Grid } from "@material-ui/core";
+import { Box, Button, Grid } from "@material-ui/core";
 import InfoIconOutlined from "@material-ui/icons/Info";
 //import { useHistory } from "react-router-dom";
-import ModalOverlay from "./ModalOverlay";
-import { Link } from "react-router-dom";
+import TournamentInfoOverlay from "./TournamentInfoOverlay";
+import { Link } from "react-router-dom"
+
+import runden_turnierPNG from "../images/runden_turnier.png";
+import ko_turnierPNG from "../images/ko_turnier.png";
+
 
 function TournamentType(props) {
+
+  //onst images = require.context("../../src/pages", true)
+
+  //let dynamicImage = images(props.src)
 
   const [modalVisible, setModal] = React.useState(false);
 
@@ -15,7 +23,6 @@ function TournamentType(props) {
 
   const handleClose = () => {
     setModal(false);
-    console.log("CLOSE")
   };
 
   const gridItemStyle = {
@@ -28,7 +35,7 @@ function TournamentType(props) {
     position: "absolute",
     right: "10px",
     top: "5px",
-    color: "white",
+    color: "black",
   };
 
   const wrapperStyle = {
@@ -49,12 +56,14 @@ function TournamentType(props) {
           onMouseDown={handleOpen}
           >
           <InfoIconOutlined fontSize="large" style={infoIconStyle} />
+          <Box m={6}>
           <img
             name={props.tournamentType}
             alt={props.name}
             width="100%"
-            src="https://picsum.photos/600/400"            
+            src={props.tournamentType === "ko" ? ko_turnierPNG : runden_turnierPNG} //haky, weil import und weitergabe nicht klappt
           />
+          </Box>
         </div>
       </Grid>
       <Grid item xs={12} style={gridItemStyle}>
@@ -68,7 +77,7 @@ function TournamentType(props) {
           {props.name}
         </Button>
       </Grid>
-      <ModalOverlay
+      <TournamentInfoOverlay
         open={modalVisible}
         onClose={handleClose}
         title={props.name}

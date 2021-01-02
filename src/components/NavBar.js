@@ -97,7 +97,13 @@ export default function NavBar(props) {
     switch (props.rightSide) {
       case "info":
         return (
-          <IconButton edge="end" color="inherit">
+          <IconButton
+            edge="end"
+            color="inherit"
+            component={Link}
+            onClick={props.rightSideOnClick ? props.rightSideOnClick : null}
+          >
+        
             <InfoOutlinedIcon />
           </IconButton>
         );

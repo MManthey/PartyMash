@@ -8,6 +8,9 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import SettingsElement from "../components/SettingsElement";
 import Box from "@material-ui/core/Box";
+import {tournamentInfo, koTournamentSettings } from "../const/Tournamentdata";
+import TournamentInfoOverlay from "../components/TournamentInfoOverlay"
+
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -43,38 +46,28 @@ function renderSettings(items) {
 function CreateRoundTournament() {
   const classes = useStyles();
 
-  const settingElementsTop = [
-    { id: 1, text: "Teams erlauben", controlElement: "switch" },
-    { id: 2, text: "Teamgröße beschränken", controlElement: "switch" },
-    {
-      id: 3,
-      text: "Max. Teamgröße",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-  ];
+  const settings = koTournamentSettings
+  const tinfo = tournamentInfo //tinfo[0] is K.O. Turnier
 
-  const settingElementsMiddle = [
-    { id: 10, text: "Double Elemination", controlElement: "switch" },
-  ];
+  const [modalVisible, setModal] = React.useState(false)
 
-  const settingElementsBottom = [
-    {
-      id: 103,
-      text: "Anzahl der Parallelen Spiele",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-  ];
+  const handleOpen = () => {
+    setModal(true)
+  };
+
+  const handleClose = () => {
+    setModal(false);
+  };
+
 
   return (
     <div>
       <NavBar
         leftSide="arrow"
-        text="Rundenturnier Erstellen"
+        text="K.O. Turnier Erstellen"
         rightSide="info"
+        rightSideOnClick={handleOpen}
+
       />
       {/**Spacing lieber mit den Material UI eingabuten sachen  https://material-ui.com/system/spacing/*/}
       <Box mx={2} my={2}>
@@ -92,11 +85,11 @@ function CreateRoundTournament() {
             width: "100%",
           }}
         >
-          {renderSettings(settingElementsTop)}
+          {renderSettings(settings.settingElementsTop)}
           <Divider variant="middle" />
-          {renderSettings(settingElementsMiddle)}
+          {renderSettings(settings.settingElementsMiddle)}
           <Divider variant="middle" />
-          {renderSettings(settingElementsBottom)}
+          {renderSettings(settings.settingElementsBottom)}
         </Grid>
         <Grid container justify="center">
           <Grid item>
@@ -115,6 +108,14 @@ function CreateRoundTournament() {
           </Grid>
         </Grid>
       </Box>
+      <TournamentInfoOverlay
+        open={modalVisible}
+        onClose={handleClose}
+        title="K.O.Turnier"
+        infoText={tinfo[0].infoText}
+        pros={tinfo[0].pros}
+        cons={tinfo[0].cons}
+      />
     </div>
   );
 }

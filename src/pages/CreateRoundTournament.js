@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import SettingsElement from "../components/SettingsElement";
 import Box from "@material-ui/core/Box";
+import { roundTournamentSettings, tournamentInfo } from "../const/Tournamentdata";
+import TournamentInfoOverlay from "../components/TournamentInfoOverlay"
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -47,58 +49,17 @@ function renderSettings(items) {
 function CreateRoundTournament() {
   const classes = useStyles();
 
-  const settingElementsTop = [
-    {
-      id: 1,
-      text: "Anzahl Turnierrunden",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-    { id: 2, text: "Teams erlauben", controlElement: "switch" },
-    { id: 3, text: "Teamgröße beschränken", controlElement: "switch" },
-    {
-      id: 4,
-      text: "Max. Teamgröße",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-  ];
+  const settings = roundTournamentSettings
+  const tinfo = tournamentInfo //tinfo[1] is Rundenturnier
+  const [modalVisible, setModal] = React.useState(false)
 
-  const settingElementsMiddle = [
-    {
-      id: 100,
-      text: "Punkte für Sieg",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-    {
-      id: 101,
-      text: "Punkte für Unentschieden",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-    {
-      id: 102,
-      text: "Punkte für Niederlage",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-  ];
+  const handleOpen = () => {
+    setModal(true)
+  };
 
-  const settingElementsBottom = [
-    {
-      id: 103,
-      text: "Anzahl der Parallelen Spiele",
-      controlElement: "incrementer",
-      maxValue: 10,
-      minValue: 0,
-    },
-  ];
+  const handleClose = () => {
+    setModal(false);
+  };
 
   return (
     <div>
@@ -106,6 +67,7 @@ function CreateRoundTournament() {
         leftSide="arrow"
         text="Rundenturnier Erstellen"
         rightSide="info"
+        rightSideOnClick={handleOpen}
       />
       {/**Spacing lieber mit den Material UI eingabuten sachen  https://material-ui.com/system/spacing/*/}
       <Box mx={2} my={2}>
@@ -122,11 +84,11 @@ function CreateRoundTournament() {
             width: "100%",
           }}
         >
-          {renderSettings(settingElementsTop)}
+          {renderSettings(settings.settingElementsTop)}
           <Divider variant="middle" />
-          {renderSettings(settingElementsMiddle)}
+          {renderSettings(settings.settingElementsMiddle)}
           <Divider variant="middle" />
-          {renderSettings(settingElementsBottom)}
+          {renderSettings(settings.settingElementsBottom)}
         </Grid>
         <Grid container justify="center">
           <Grid item>
@@ -145,6 +107,14 @@ function CreateRoundTournament() {
           </Grid>
         </Grid>
       </Box>
+      <TournamentInfoOverlay
+        open={modalVisible}
+        onClose={handleClose}
+        title="Rundenturnier"
+        infoText={tinfo[1].infoText}
+        pros={tinfo[1].pros}
+        cons={tinfo[1].cons}
+      />
     </div>
   );
 }
