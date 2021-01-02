@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import GameTable from './GameTable';
-import Notification from "./Notification";
+import NextGameNotice from "./NextGameNotice";
 
 const useStyles = makeStyles({
   root: {
@@ -14,16 +14,14 @@ const useStyles = makeStyles({
   },
 });
 
-function Games({ games, notifications }) {
+function Games({ games, nextGameNotice }) {
 
   const classes = useStyles();
 
   return (
     <Container className={classes.root}>
       <div className={classes.alerts}>
-        {notifications.map((notification) => (
-          <Notification notification={notification} />
-        ))}
+        <NextGameNotice nextGameNotice={nextGameNotice} />
       </div>
       <Typography variant="h6" gutterBottom>
         Laufende Spiele

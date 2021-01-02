@@ -1,12 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
-const Table = (props) => {
+const TournamentTree = (props) => {
     return (
         <Typography variant="h5" gutterBottom>
-          Hier kommt die Spielematrix hin!
+          Hier kommt der Turnierbaum hin!
         </Typography>
     );
 }
 
-export default Table;
+export default TournamentTree;

@@ -4,14 +4,15 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import VideogameAsset from "@material-ui/icons/VideogameAsset";
 import GridOn from "@material-ui/icons/GridOn";
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import FormatListNumbered from "@material-ui/icons/FormatListNumbered";
-import Games from "../components/Games";
-import Table from "../components/Table";
-import Ranking from "../components/Ranking";
+import Games from "../components/overview/Games";
+import TournamentTable from "../components/overview/TournamentTable";
+import TournamentTree from "../components/overview/TournamentTree";
+import Ranking from "../components/overview/Ranking";
 import { makeStyles } from "@material-ui/core/styles";
 import NavBar from "../components/NavBar";
 
-//Die Seite soll auch auf dem Desktop funktionieren/nicht kauputt aussehen, das mit MaxWidth ist glaube ich keine gute Idee
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -19,14 +20,14 @@ const useStyles = makeStyles({
 });
 
 const testGame = {
-  "mode" : "K.O.",
-  "settings" : {
-    "allowTeams" : true,
-    "maxTeamSize" : 2,
-    "isDoubleElim" : false,
-    "numOfParallelGames" : 3,
+  "mode": "K.O.",
+  "settings": {
+    "allowTeams": true,
+    "maxTeamSize": 2,
+    "isDoubleElim": false,
+    "numOfParallelGames": 3,
   },
-  "teams" : [
+  "teams": [
     ["John Doe", "Max Mustermann"]
     ["Klaus Kleber"]
   ]
@@ -36,32 +37,32 @@ const testGames = [
   {
     "p1": "Team 1",
     "p2": "Team 2",
-    "running" : true
+    "running": true
   },
   {
     "p1": "Team 3",
     "p2": "Team 4",
-    "running" : true
+    "running": true
   },
   {
     "p1": "Team 5",
     "p2": "Team 6",
-    "running" : true
+    "running": true
   },
   {
     "p1": "Team 7",
     "p2": "Team 8",
-    "running" : false
+    "running": false
   },
   {
     "p1": "Team 9",
     "p2": "Team 10",
-    "running" : false
+    "running": false
   },
   {
     "p1": "Team 11",
     "p2": "Team 12",
-    "running" : false
+    "running": false
   },
 ];
 
@@ -116,22 +117,33 @@ const testStandings = [
   },
 ];
 
-const testNotifications = [
-  {
-    "message" : "In 3 Spielen spielst Du!",
-    "open" : true,
-  }
-]
+const testNnextGameNotice = {
+  "type": "NextGameNotice",
+  "count": 5,
+};
+
 
 function TournamentOverview() {
 
   const classes = useStyles();
+
   const [tabIndex, setTabIndex] = React.useState(0);
+
   const [games, setGames] = React.useState(testGames);
 
   const handleChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
   };
+
+  const [nextGameNotice, setNextGameNotice] = React.useState(testNnextGameNotice);
+
+  React.useEffect(() => {
+    if (nextGameNotice.count > 0) {
+      setTimeout(() => {
+        setNextGameNotice({ "type": "NextGameNotice", "count": nextGameNotice.count - 1 });
+      }, 1000);
+    }
+  });
 
   return (
     <>
@@ -146,11 +158,14 @@ function TournamentOverview() {
           aria-label="icon label tabs example"
         >
           <Tab icon={<VideogameAsset />} label="Spiele" />
-          <Tab icon={<GridOn />} label="Tabelle" />
+          {testGame.mode === "K.O." ? <Tab icon={<AccountTreeIcon />} label="Baum" /> : <Tab icon={<GridOn />} label="Tabelle" />}
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
-      {tabIndex === 0 ? <Games games={games} notifications={testNotifications} /> : tabIndex === 1 ? <Table /> : <Ranking ranking={testStandings}/>}
+      {tabIndex === 0 ?
+        <Games games={games} nextGameNotice={nextGameNotice} /> : tabIndex === 1 ?
+          testGame.mode === "K.O." ?
+            <TournamentTree /> : <TournamentTable /> : <Ranking ranking={testStandings} />}
     </>
   );
 }
