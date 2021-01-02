@@ -38,8 +38,8 @@ function QROverlay(props) {
               color="primary"
               variant="contained"
               size="medium"
-              //component={Link}
-              //to="/tournamentPreview"
+              component={Link}
+              to="/tournamentOverview"
             >
               <Typography noWrap={true} variant="button">
                 Teilen
