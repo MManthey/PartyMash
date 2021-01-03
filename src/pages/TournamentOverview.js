@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 const testGame = {
-  "mode": "K.O.",
+  "mode": "Rounds",
   "settings": {
     "allowTeams": true,
     "maxTeamSize": 2,
@@ -165,7 +165,7 @@ function TournamentOverview() {
       {tabIndex === 0 ?
         <Games games={games} nextGameNotice={nextGameNotice} /> : tabIndex === 1 ?
           testGame.mode === "K.O." ?
-            <TournamentTree /> : <TournamentTable /> : <Ranking ranking={testStandings} />}
+            <TournamentTree /> : <TournamentTable standings={testStandings} /> : <Ranking ranking={testStandings} />}
     </>
   );
 }
