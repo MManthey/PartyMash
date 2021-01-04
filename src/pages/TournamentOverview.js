@@ -108,7 +108,7 @@ const testStandings = [
   },
 ];
 
-const testNnextGameNotice = {
+const testNextGameNotice = {
   "type": "NextGameNotice",
   "count": 5,
 };
@@ -126,7 +126,7 @@ function TournamentOverview() {
     setTabIndex(newTabIndex);
   };
 
-  const [nextGameNotice, setNextGameNotice] = React.useState(testNnextGameNotice);
+  const [nextGameNotice, setNextGameNotice] = React.useState(testNextGameNotice);
 
   React.useEffect(() => {
     if (nextGameNotice.count > 0) {

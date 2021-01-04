@@ -8,14 +8,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   leftSide: {
-    backgroundColor: "#fafafa",
+    backgroundColor: '#fafafa',
   },
   border: {
-    borderRight: "1px solid #e0e0e0",
-  }
-});
+    borderRightStyle: 'solid',
+    borderRightWidth: '1px',
+    borderRightColor: '#e0e0e0',
+  },
+}));
 
 function TournamentTable({ standings }) {
 
@@ -47,7 +49,7 @@ function TournamentTable({ standings }) {
           <TableBody>
             {standings.map((team) => (
               <TableRow >
-                <TableCell align="center" className={`${classes.leftSide} ${classes.border}`}>
+                <TableCell align="center" className={classes.border} variant='head'>
                   {team.name}
                 </TableCell>
                 {standings.map((team) => (
