@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Games({ games, nextGameNotice }) {
+function Games({ games, nextGameNotice, settings }) {
 
   const classes = useStyles();
 
@@ -26,11 +26,11 @@ function Games({ games, nextGameNotice }) {
       <Typography variant="h6" gutterBottom>
         Laufende Spiele
       </Typography>
-      <GameTable games={games.filter(game => game.running)} />
+      <GameTable games={games.filter(game => game.running)} settings={settings} />
       <Typography variant="h6" gutterBottom >
         Anstehende Spiele
       </Typography>
-      <GameTable games={games.filter(game => !game.running)} />
+      <GameTable games={games.filter(game => !game.running)} settings={settings} />
     </Container>
   );
 };

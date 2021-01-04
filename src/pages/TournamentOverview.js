@@ -19,18 +19,9 @@ const useStyles = makeStyles({
   },
 });
 
-const testGame = {
+const testSettings = {
   "mode": "Rounds",
-  "settings": {
-    "allowTeams": true,
-    "maxTeamSize": 2,
-    "isDoubleElim": false,
-    "numOfParallelGames": 3,
-  },
-  "teams": [
-    ["John Doe", "Max Mustermann"]
-    ["Klaus Kleber"]
-  ]
+  "userTeam": "Team 9"
 };
 
 const testGames = [
@@ -158,14 +149,14 @@ function TournamentOverview() {
           aria-label="icon label tabs example"
         >
           <Tab icon={<VideogameAsset />} label="Spiele" />
-          {testGame.mode === "K.O." ? <Tab icon={<AccountTreeIcon />} label="Baum" /> : <Tab icon={<GridOn />} label="Tabelle" />}
+          {testSettings.mode === "K.O." ? <Tab icon={<AccountTreeIcon />} label="Baum" /> : <Tab icon={<GridOn />} label="Tabelle" />}
           <Tab icon={<FormatListNumbered />} label="Rangliste" />
         </Tabs>
       </Paper>
       {tabIndex === 0 ?
-        <Games games={games} nextGameNotice={nextGameNotice} /> : tabIndex === 1 ?
-          testGame.mode === "K.O." ?
-            <TournamentTree /> : <TournamentTable standings={testStandings} /> : <Ranking ranking={testStandings} />}
+        <Games games={games} nextGameNotice={nextGameNotice} settings={testSettings} /> : tabIndex === 1 ?
+          testSettings.mode === "K.O." ?
+            <TournamentTree /> : <TournamentTable standings={testStandings} /> : <Ranking ranking={testStandings} settings={testSettings} />}
     </>
   );
 }
