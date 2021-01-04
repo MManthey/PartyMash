@@ -26,7 +26,7 @@ const CurrentGame = (props) => {
       <NavBar logo={true} text="#45583" rightSide="menu" />
       <Grid container className={classes.root} direction="column" alignItems="center" justify="center">
         <Typography variant="h2" gutterBottom align="center">
-          Du spielt jetzt gegen Team X!
+          Du spielst jetzt gegen Team 10!
         </Typography>
         <Button
           className={classes.button}
