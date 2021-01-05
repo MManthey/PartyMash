@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import TournamentOverview from "./pages/TournamentOverview";
 import Teams from "./pages/Teams";
+import CurrentGame from "./pages/CurrentGame";
 import CreateRoundTournament from "./pages/CreateRoundTournament";
 import CreateKnockoutTournament from "./pages/CreateKnockoutTournament";
 import TournamentPreview from "./pages/TournamentPreview";
@@ -97,9 +98,8 @@ function App() {
               path="/createKnockoutTournament"
               component={CreateKnockoutTournament}
             />
-            {/* zum Testen */}
             <Route path="/overview" component={TournamentOverview} />
-           
+            <Route path="/currentGame" component={CurrentGame} />
           </Switch>
         </div>
       </Router>
