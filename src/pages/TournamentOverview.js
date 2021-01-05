@@ -19,10 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const testSettings = {
-  "mode": "Rounds",
-  "userTeam": "Team 9"
-};
+
 
 const testGames = [
   {
@@ -114,7 +111,11 @@ const testNextGameNotice = {
 };
 
 
-function TournamentOverview() {
+function TournamentOverview(props) {
+  const testSettings = {
+    "mode": props.mode,
+    "userTeam": "Team 9"
+  };
 
   const classes = useStyles();
 

@@ -2,8 +2,6 @@ import React from "react";
 import TeamRow from "../components/teams/TeamRow";
 import NavBar from "../components/NavBar";
 import BottomDrawer from "../components/drawer/BottomDrawer";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core/styles";
 import QROverlay from "../components/QROverlay";
 
@@ -12,7 +10,6 @@ function Teams() {
   const [modalVisible, setModal] = React.useState(true);
 
   const handleOpen = () => {
-    console.log("Try to open");
     setModal(true)
   };
 
@@ -63,7 +60,7 @@ function Teams() {
   const classes = useStyles();
   return (
     <>
-      <NavBar leftSide="arrow" text="Team Zuordnung" rightSide="menu" />
+      <NavBar leftSide="arrow" logo={true} text="#45583" rightSide="menu" menuItems={[{name:"Teilen", path:"/teams"}]} />
       <div style={pageStyle}>
         <div style={rowStyle}>
           <TeamRow players={emptyTeam}></TeamRow>
