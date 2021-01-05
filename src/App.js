@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./pages/Home";
 import TournamentOverview from "./pages/TournamentOverview";
-import TeamZuordnenPage from "./pages/TeamZuordnenPage";
+import Teams from "./pages/Teams";
 import CreateRoundTournament from "./pages/CreateRoundTournament";
 import CreateKnockoutTournament from "./pages/CreateKnockoutTournament";
 import TournamentPreview from "./pages/TournamentPreview";
@@ -86,7 +86,7 @@ function App() {
               )}
             />
             <Route path="/tournamentOverview" component={TournamentOverview} />
-            <Route path="/teamZuordnen" component={TeamZuordnenPage} />
+            <Route path="/teams" component={Teams} />
             <Route path="/tournamentPreview" component={TournamentPreview} />
             <Route path="/enterResult" component={EnterResult} />
             <Route

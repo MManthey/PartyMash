@@ -7,7 +7,7 @@ import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core/styles";
 import QROverlay from "../components/QROverlay";
 
-function TeamZuordnenPage() {
+function Teams() {
 
   const [modalVisible, setModal] = React.useState(false);
 
@@ -89,4 +89,4 @@ function TeamZuordnenPage() {
   );
 }
 
-export default TeamZuordnenPage;
+export default Teams;
