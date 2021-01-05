@@ -1,17 +1,10 @@
-
-
-
-
-
-
 import React from "react";
 import { Box, Button, Grid } from "@material-ui/core";
-import InfoIconOutlined from "@material-ui/icons/Info";
-import TournamentInfoOverlay from "./TournamentInfoOverlay";
+import TournamentInfoOverlay from "../overlay/TournamentInfoOverlay";
 import { Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles";
-import runden_turnierSVG from "../images/runden_turnier.svg";
-import ko_turnierSVG from "../images/ko_turnier.svg";
+import runden_turnierSVG from "../../images/runden_turnier.svg";
+import ko_turnierSVG from "../../images/ko_turnier.svg";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';

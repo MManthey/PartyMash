@@ -4,7 +4,6 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import GameTable from './GameTable';
 import NextGameNotice from "./NextGameNotice";
-import { PinDropSharp } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   root: {

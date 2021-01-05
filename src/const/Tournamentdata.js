@@ -1,5 +1,3 @@
-import runden_turnierPNG from "../images/runden_turnier.png";
-import ko_turnierPNG from "../images/ko_turnier.png";
 
 
 
@@ -8,7 +6,7 @@ export const tournamentInfo = [
     {
       tournamentType:"round",
       name:"Rundenturnier",
-      src:{runden_turnierPNG}, //klappt so irgendwie nicht
+      //src:{runden_turnierPNG}, //klappt so irgendwie nicht
       linkTo:"/createRoundTournament",
       infoText: "Als „Rundenturnier“ (auch „Jeder gegen jeden“, englisch Round Robin oder Liga-System) wird eine Turnierform bezeichnet, bei der jeder Turnierteilnehmer gleich oft gegen alle anderen Turnierteilnehmer antritt.",
       teaserText: "Als „Rundenturnier“ wird eine Turnierform bezeichnet, bei der jeder Turnierteilnehmer gleich oft gegen alle anderen Turnierteilnehmer antritt...",
@@ -25,7 +23,7 @@ export const tournamentInfo = [
     {
       tournamentType:"ko",
       name:"K.O. Turnier",
-      src:{ko_turnierPNG}, //klappt so irgendwie nicht
+      //src:{ko_turnierPNG}, //klappt so irgendwie nicht
       linkTo:"/createKnockoutTournament",
       infoText: "Das K.-o.-System (von englisch knockout; etwa: „außer Gefecht setzen“) im engeren Sinne ist eine Turnierform, bei der in jeder Spielrunde jeweils zwei Teilnehmer aufeinandertreffen und der Verlierer ausscheidet, bis schließlich im Finale der Sieger des Turniers ermittelt wird. Zweifaches ausscheiden einstellbar.",
       teaserText: "Das K.-o.-System ist eine Turnierform, bei der in jeder Spielrunde jeweils zwei Teilnehmer aufeinandertreffen...",

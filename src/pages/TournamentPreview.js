@@ -1,5 +1,5 @@
 import React from "react";
-import TournamnetType from "../components/TournamentType";
+import TournamnetType from "../components/tournamentType/TournamentType";
 import { Grid } from "@material-ui/core";
 import NavBar from "../components/NavBar";
 import {tournamentInfo} from "../const/Tournamentdata";

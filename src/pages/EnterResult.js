@@ -31,17 +31,7 @@ const useStyles = makeStyles((theme) => ({
     if(props.location.visible){
         visibility = "block";
     }
-
-
-    const buttonLoseStyle = {
-        main: "#E74C3C",
-        background: "#E74C3C",
-        color: "#fff",
-        contrastText: "#fff",
-        marginLeft: "2%"
-        
-    }
-
+    
     return (
         <>
         <NavBar leftSide="arrow" text="Ergebnis eintragen" rightSide="menu" />

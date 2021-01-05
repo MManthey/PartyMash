@@ -6,10 +6,10 @@ import Divider from "@material-ui/core/Divider";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import SettingsElement from "../components/SettingsElement";
+import SettingsElement from "../components/tournamentSettings/SettingsElement";
 import Box from "@material-ui/core/Box";
 import {tournamentInfo, koTournamentSettings } from "../const/Tournamentdata";
-import TournamentInfoOverlay from "../components/TournamentInfoOverlay"
+import TournamentInfoOverlay from "../components/overlay/TournamentInfoOverlay"
 
 
 const useStyles = makeStyles((theme) => ({
