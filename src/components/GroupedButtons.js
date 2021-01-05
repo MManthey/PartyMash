@@ -34,16 +34,18 @@ class GroupedButtons extends React.Component {
     this.state.counter - 1 <= this.props.minValue
       ? this.setState((prevState) => ({ minDisabled: true }))
       : this.setState((prevState) => ({ minDisabled: false }));
-      console.log(this.state.counter)
+      console.log("In im sate callback: " + this.state.counter)
 
   }
 
   handleIncrement = () => {
-    this.setState((prevState) => ({ counter: prevState.counter + 1 }),this.disableButtons());
+    this.setState((prevState) => ({ counter: prevState.counter + 1 }), this.disableButtons());
+    console.log("In increment: " + this.state.counter)
   };
 
   handleDecrement = () => {
     this.setState((prevState) => ({ counter: prevState.counter - 1 }), this.disableButtons());
+    console.log("In decrement: " + this.state.counter)
   };
 
   render() {

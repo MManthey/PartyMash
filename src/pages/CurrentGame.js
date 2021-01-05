@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from '@material-ui/core';
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +22,17 @@ const CurrentGame = (props) => {
 
   const classes = useStyles();
 
+  const newTo = {
+    pathname:"/enterResult",
+    visible: props.mode === "K.O" ? false : true
+  }
+
   return (
     <>
       <NavBar logo={true} text="#45583" rightSide="menu" />
+      <Box my={10}>
       <Grid container className={classes.root} direction="column" alignItems="center" justify="center">
-        <Typography variant="h2" gutterBottom align="center">
+        <Typography variant="h1" gutterBottom align="center">
           Du spielst jetzt gegen Team 10!
         </Typography>
         <Button
@@ -34,13 +41,14 @@ const CurrentGame = (props) => {
           variant="contained"
           size="large"
           component={Link}
-          to="/overview"
+          to={newTo}
         >
           <Typography noWrap={true} variant="button">
             Ergebnis eintragen!
           </Typography>
         </Button>
       </Grid>
+      </Box>
     </>
   );
 }

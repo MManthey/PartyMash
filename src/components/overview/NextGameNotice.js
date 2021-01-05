@@ -3,7 +3,13 @@ import Alert from '@material-ui/lab/Alert';
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
-function buildNotification(count) {
+function buildNotification(count, mode) {
+
+  const newTo = {
+    pathname:"/currentGame",
+    mode: {mode}
+  }
+
   if (count > 0) {
     return <Alert
       variant="filled"
@@ -17,7 +23,7 @@ function buildNotification(count) {
       variant="filled"
       severity="success"
       component={Link}
-      to="/currentGame"
+      to={newTo}
       action={
         <ArrowForwardIcon />
       }
@@ -27,9 +33,9 @@ function buildNotification(count) {
   }
 }
 
-function NextGameNotice({ nextGameNotice }) {
+function NextGameNotice({ nextGameNotice, settings }) {
   return (
-    buildNotification(nextGameNotice.count)
+    buildNotification(nextGameNotice.count, settings.mode)
   );
 }
 

@@ -46,7 +46,7 @@ function Home() {
               component={Link}
               to="/tournamentPreview"
             >
-              <Typography noWrap={true} variant="button">
+              <Typography align="center" variant="button">
                 Turnier Erstellen
               </Typography>
             </Button>
@@ -58,12 +58,13 @@ function Home() {
               variant="contained"
               size="large"
               component={Link}
-              to="/"
+              to="/tournamentOverview"
             >
-              <Typography noWrap={true} variant="button">
+              <Typography align="center" variant="button">
                 Code eingeben
               </Typography>
-            </Button>
+            </Button            
+            >
           </Grid>
         </Grid>
       </Box>

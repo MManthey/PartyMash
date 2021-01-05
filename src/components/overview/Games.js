@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import GameTable from './GameTable';
 import NextGameNotice from "./NextGameNotice";
+import { PinDropSharp } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +22,7 @@ function Games({ games, nextGameNotice, settings }) {
   return (
     <Container className={classes.root}>
       <div className={classes.alerts}>
-        <NextGameNotice nextGameNotice={nextGameNotice} />
+        <NextGameNotice settings={settings} nextGameNotice={nextGameNotice} />
       </div>
       <Typography variant="h6" gutterBottom>
         Laufende Spiele
