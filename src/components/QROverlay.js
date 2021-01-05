@@ -55,7 +55,7 @@ function QROverlay(props) {
         variant="contained"
         size="medium"
         component={Link}
-        to="/tournamentOverview"
+        to={{pathname: "/tournamentOverview", mode: props.mode}}
         style={buttonStyle}
       >
         <Typography noWrap={false} variant="button">

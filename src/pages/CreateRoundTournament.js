@@ -99,7 +99,7 @@ function CreateRoundTournament() {
                 variant="contained"
                 size="large"
                 component={Link}
-                to="/teams"
+                to={{ pathname: "/teams", mode: "Rounds" }}
               >
                 <Typography variant="button">Lobby erstellen</Typography>
               </Button>

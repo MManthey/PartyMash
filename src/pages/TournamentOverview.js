@@ -19,8 +19,6 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 const testGames = [
   {
     "p1": "Team 1",
@@ -112,8 +110,9 @@ const testNextGameNotice = {
 
 
 function TournamentOverview(props) {
+
   const testSettings = {
-    "mode": props.mode,
+    "mode": props.location.mode,
     "userTeam": "Team 9"
   };
 

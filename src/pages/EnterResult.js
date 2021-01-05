@@ -7,9 +7,6 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-
-
-
 const useStyles = makeStyles((theme) => ({
     button: {
       height: 50,
@@ -45,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
           justify="center"
           alignItems="center"
           spacing={3}
-          
         >
             <Grid item>
                 <Button 
@@ -53,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
                 color="secondary"
                 variant="contained"
                 component={Link}
-                to="/tournamentOverview">
+                to={{pathname: "/tournamentOverview", mode: props.location.visible ? "Rounds" : "K.O."}}>
                     <Typography noWrap={true} variant="button">
                         Gewonnen
                     </Typography>
@@ -67,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
                 variant="contained"
                 component={Link}
                 style={{display:visibility}}
-                to="/tournamentOverview">
+                to={{pathname: "/tournamentOverview", mode: props.location.visible ? "Rounds" : "K.O."}}>
                     <Typography noWrap={true} variant="button">
                         Unentschieden
                     </Typography>
@@ -80,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
                     color="primary"
                     component={Link}
                     variant="outlined"
-                    to="/tournamentOverview">
+                    to={{pathname: "/tournamentOverview", mode: props.location.visible ? "Rounds" : "K.O."}}>
                     <Typography noWrap={true} variant="button">
                         Verloren
                     </Typography>

@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import SettingsElement from "../components/tournamentSettings/SettingsElement";
 import Box from "@material-ui/core/Box";
-import {tournamentInfo, koTournamentSettings } from "../const/Tournamentdata";
+import { tournamentInfo, koTournamentSettings } from "../const/Tournamentdata";
 import TournamentInfoOverlay from "../components/overlay/TournamentInfoOverlay"
 
 
@@ -100,7 +100,7 @@ function CreateRoundTournament() {
                 variant="contained"
                 size="large"
                 component={Link}
-                to="/teams"
+                to={{ pathname: "/teams", mode: "K.O." }}
               >
                 <Typography variant="button">Lobby erstellen</Typography>
               </Button>

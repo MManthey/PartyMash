@@ -22,32 +22,27 @@ const CurrentGame = (props) => {
 
   const classes = useStyles();
 
-  const newTo = {
-    pathname:"/enterResult",
-    visible: props.mode === "K.O" ? false : true
-  }
-
   return (
     <>
       <NavBar logo={true} text="#45583" rightSide="menu" />
       <Box my={10}>
-      <Grid container className={classes.root} direction="column" alignItems="center" justify="center">
-        <Typography variant="h1" gutterBottom align="center">
-          Du spielst jetzt gegen Team 10!
+        <Grid container className={classes.root} direction="column" alignItems="center" justify="center">
+          <Typography variant="h1" gutterBottom align="center">
+            Du spielst jetzt gegen Team 10!
         </Typography>
-        <Button
-          className={classes.button}
-          color="primary"
-          variant="contained"
-          size="large"
-          component={Link}
-          to={newTo}
-        >
-          <Typography noWrap={true} variant="button">
-            Ergebnis eintragen!
+          <Button
+            className={classes.button}
+            color="primary"
+            variant="contained"
+            size="large"
+            component={Link}
+            to={{ pathname: "/enterResult", visible: props.location.mode === "K.O." ? false : true }}
+          >
+            <Typography noWrap={true} variant="button">
+              Ergebnis eintragen!
           </Typography>
-        </Button>
-      </Grid>
+          </Button>
+        </Grid>
       </Box>
     </>
   );

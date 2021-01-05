@@ -5,7 +5,7 @@ import BottomDrawer from "../components/drawer/BottomDrawer";
 import { makeStyles } from "@material-ui/core/styles";
 import QROverlay from "../components/QROverlay";
 
-function Teams() {
+function Teams(props) {
   const [modalVisible, setModal] = React.useState(true);
 
   const handleOpen = () => {
@@ -77,6 +77,7 @@ function Teams() {
         className={classes.modal}
         open={modalVisible}
         close={handleClose}
+        mode={props.location.mode}
       ></QROverlay>
     </>
   );

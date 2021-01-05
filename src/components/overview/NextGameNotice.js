@@ -5,11 +5,6 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 function buildNotification(count, mode) {
 
-  const newTo = {
-    pathname:"/currentGame",
-    mode: {mode}
-  }
-
   if (count > 0) {
     return <Alert
       variant="filled"
@@ -23,7 +18,7 @@ function buildNotification(count, mode) {
       variant="filled"
       severity="success"
       component={Link}
-      to={newTo}
+      to={{ pathname: "/currentGame", mode: mode }}
       action={
         <ArrowForwardIcon />
       }
