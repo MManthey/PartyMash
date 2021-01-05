@@ -23,29 +23,40 @@ class GroupedButtons extends React.Component {
     }
     this.handleIncrement = this.handleIncrement.bind(this)
     this.handleDecrement = this.handleDecrement.bind(this)
-    this.disableButtons = this.disableButtons.bind(this)
   }
 
-  disableButtons() {
-    this.state.counter + 1 >= this.props.maxValue
-      ? this.setState((prevState) => ({ maxDisabled: true }))
-      : this.setState((prevState) => ({ maxDisabled: false }));
-
-    this.state.counter - 1 <= this.props.minValue
-      ? this.setState((prevState) => ({ minDisabled: true }))
-      : this.setState((prevState) => ({ minDisabled: false }));
-      console.log("In im sate callback: " + this.state.counter)
-
+  isMaxDisabled(counter){
+    return counter + 1 > this.props.maxValue
+  }
+  isMinDisabled(counter){
+    return counter - 1 < this.props.minValue
   }
 
-  handleIncrement = () => {
-    this.setState((prevState) => ({ counter: prevState.counter + 1 }), this.disableButtons());
-    console.log("In increment: " + this.state.counter)
+  /* state set for disable in callback to make sure state is correct  */
+  handleIncrement = (event) => {
+    this.setState((prevState) => ({
+      counter: prevState.counter + 1      
+     }),
+      () => {
+        this.setState((prevState) => ({
+          maxDisabled: this.isMaxDisabled(prevState.counter),
+          minDisabled: this.isMinDisabled(prevState.counter)
+        }))
+      }
+     );
   };
 
-  handleDecrement = () => {
-    this.setState((prevState) => ({ counter: prevState.counter - 1 }), this.disableButtons());
-    console.log("In decrement: " + this.state.counter)
+  handleDecrement = (event) => {
+    this.setState((prevState) => ({
+      counter: prevState.counter - 1
+    }),
+    () => {
+      this.setState((prevState) => ({
+        maxDisabled: this.isMaxDisabled(prevState.counter),
+        minDisabled: this.isMinDisabled(prevState.counter)
+      }))
+    }
+    );
   };
 
   render() {
