@@ -73,11 +73,7 @@ export default function NavBar(props) {
             className={classes.menuButton}
             color="inherit"
           >
-            <Avatar
-              // src="/userImages/avatar.png"
-              alt="PB"
-              className={classes.small}
-            ></Avatar>
+            <Avatar alt="PB" className={classes.small}></Avatar>
           </IconButton>
         );
       default:
@@ -85,12 +81,28 @@ export default function NavBar(props) {
     }
   }
 
-  function menuItems(items) {
-    return items.map((item) => (
-      <MenuItem component={Link} to={item.path} onClick={handleClose}>
-        {item.name}
-      </MenuItem>
-    ));
+  function renderMenuItem(item) {
+    switch (item.type) {
+      case "link":
+        return (
+          <MenuItem component={Link} to={item.path} onClick={handleClose}>
+            {item.name}
+          </MenuItem>
+        );
+      case "modal":
+        return (
+          <MenuItem
+            onClick={() => {
+              item.onClick();
+              handleClose();
+            }}
+          >
+            {item.name}
+          </MenuItem>
+        );
+      default:
+        return null;
+    }
   }
 
   function renderRightNavBar(props) {
@@ -103,7 +115,6 @@ export default function NavBar(props) {
             component={Link}
             onClick={props.rightSideOnClick ? props.rightSideOnClick : null}
           >
-        
             <InfoOutlinedIcon />
           </IconButton>
         );
@@ -132,7 +143,8 @@ export default function NavBar(props) {
               >
                 Einstellungen
               </MenuItem>
-              {props.menuItems && menuItems(props.menuItems)}
+              {props.menuItems &&
+                props.menuItems.map((item) => renderMenuItem(item))}
             </Menu>
           </>
         );

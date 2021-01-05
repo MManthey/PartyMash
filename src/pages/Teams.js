@@ -6,11 +6,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import QROverlay from "../components/QROverlay";
 
 function Teams() {
-
   const [modalVisible, setModal] = React.useState(true);
 
   const handleOpen = () => {
-    setModal(true)
+    setModal(true);
   };
 
   const handleClose = () => {
@@ -29,16 +28,11 @@ function Teams() {
   const fullTeam = [
     "/userImages/avatar4.jpg",
     "/userImages/avatar5.jpg",
-    "/userImages/avatar6.jpg"
-  ]
+    "/userImages/avatar6.jpg",
+  ];
 
-  const notFullTeam = [
-    "/userImages/avatar7.jpg",
-    "/userImages/avatar8.jpg"
-  ]
-  const emptyTeam = [
-
-  ]
+  const notFullTeam = ["/userImages/avatar7.jpg", "/userImages/avatar8.jpg"];
+  const emptyTeam = [];
 
   const useStyles = makeStyles((theme) => ({
     modal: {
@@ -60,7 +54,13 @@ function Teams() {
   const classes = useStyles();
   return (
     <>
-      <NavBar leftSide="arrow" logo={true} text="#45583" rightSide="menu" menuItems={[{name:"Teilen", path:"/teams"}]} />
+      <NavBar
+        leftSide="arrow"
+        logo={true}
+        text="#45583"
+        rightSide="menu"
+        menuItems={[{ type: "modal", name: "Teilen", onClick: handleOpen }]}
+      />
       <div style={pageStyle}>
         <div style={rowStyle}>
           <TeamRow players={emptyTeam}></TeamRow>
@@ -72,16 +72,12 @@ function Teams() {
           <TeamRow players={fullTeam}></TeamRow>
         </div>
       </div>
-      <BottomDrawer
-        open={handleOpen}
-      ></BottomDrawer>
-      <QROverlay 
+      <BottomDrawer open={handleOpen}></BottomDrawer>
+      <QROverlay
         className={classes.modal}
-        open={modalVisible} 
+        open={modalVisible}
         close={handleClose}
-        >
-
-    </QROverlay>
+      ></QROverlay>
     </>
   );
 }
