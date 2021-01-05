@@ -18,6 +18,8 @@ function TournamentInfoOverlay(props) {
       alignItems: "center",
       justifyContent: "center",
       textAlign: "center",
+      width: "90vw",
+      margin:"auto"
     },
     paper: {
       backgroundColor: theme.palette.background.paper,

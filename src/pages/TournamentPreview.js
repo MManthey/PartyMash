@@ -17,7 +17,7 @@ function TournamentPreview(props) {
         />
         <Grid
           container
-          direction="column"
+          direction="row"
           spacing={3}
           justify="center"
           alignContent="center"
@@ -31,6 +31,7 @@ function TournamentPreview(props) {
                 src={ttype.src}
                 linkTo={ttype.linkTo}
                 infoText={ttype.infoText}
+                teaserText={ttype.teaserText}
                 pros={ttype.pros}
                 cons={ttype.cons}
               />

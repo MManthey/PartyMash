@@ -1,19 +1,49 @@
+
+
+
+
+
+
 import React from "react";
 import { Box, Button, Grid } from "@material-ui/core";
 import InfoIconOutlined from "@material-ui/icons/Info";
-//import { useHistory } from "react-router-dom";
 import TournamentInfoOverlay from "./TournamentInfoOverlay";
 import { Link } from "react-router-dom"
+import { makeStyles } from "@material-ui/core/styles";
+import runden_turnierSVG from "../images/runden_turnier.svg";
+import ko_turnierSVG from "../images/ko_turnier.svg";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-import runden_turnierPNG from "../images/runden_turnier.png";
-import ko_turnierPNG from "../images/ko_turnier.png";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    height: 60,
+    width: "70vw",
+    maxWidth: 500
+  },
+  root: {
+    width: "90vw",
+    maxWidth: 600
+  },
+  media: {
+    height: "auto",
+    //minHeight: 300,
+    minWidth: 300,
+    padding: 20,
+    margin:"auto",
+
+  },
+}));
 
 
 function TournamentType(props) {
 
-  //onst images = require.context("../../src/pages", true)
-
-  //let dynamicImage = images(props.src)
+  const classes = useStyles();
 
   const [modalVisible, setModal] = React.useState(false);
 
@@ -25,59 +55,43 @@ function TournamentType(props) {
     setModal(false);
   };
 
-  const gridItemStyle = {
-    //width:"100%",
-    // height: "auto",
-    // marginTop: "20px",
-    // wrap: "nowrap",
-  };
-  const infoIconStyle = {
-    position: "absolute",
-    right: "10px",
-    top: "5px",
-    color: "black",
-  };
-
-  const wrapperStyle = {
-    position: "relative",
-  };
   return (
-    <Grid
-      item
-      md={6}
-      container
-      direction="column"
-      justify="center"
-      alignItems="center"
-    >
-      <Grid item xs={12} style={gridItemStyle}>
-        <div
-          style={wrapperStyle}
-          onMouseDown={handleOpen}
-          >
-          <InfoIconOutlined fontSize="large" style={infoIconStyle} />
-          <Box m={6}>
-          <img
-            name={props.tournamentType}
-            alt={props.name}
-            width="100%"
-            src={props.tournamentType === "ko" ? ko_turnierPNG : runden_turnierPNG} //haky, weil import und weitergabe nicht klappt
-          />
-          </Box>
-        </div>
-      </Grid>
-      <Grid item xs={12} style={gridItemStyle}>
-        <Button
+    <Grid item>
+    <Box mt={2}>
+    <Card className={classes.root}>
+      <CardActionArea
+        onClick={handleOpen}
+        >
+        <CardMedia
+          component="img"
+          className={classes.media}
+          image={props.tournamentType === "ko" ? ko_turnierSVG : runden_turnierSVG}
+          title="Contemplative Reptile"
+        ></CardMedia>
+        <CardContent
+        >
+          <Typography gutterBottom variant="h1" component="h1">
+            {props.name}
+          </Typography>
+          <Typography variant="body1" color="textSecondary" component="p">
+            {props.teaserText}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Box mx="auto" my={2}>
+        <Button className={classes.button}
           name={props.tournamentType}
           variant="contained"
           color="primary"          
           component={Link}
-          to={props.linkTo}
-        >
-          {props.name}
+          to={props.linkTo}>
+          Erstellen
         </Button>
-      </Grid>
-      <TournamentInfoOverlay
+        </Box>
+      </CardActions>
+    </Card>
+    <TournamentInfoOverlay
         open={modalVisible}
         onClose={handleClose}
         title={props.name}
@@ -85,8 +99,10 @@ function TournamentType(props) {
         pros={props.pros}
         cons={props.cons}
       />
+    </Box>
     </Grid>
   );
+
 }
 
 export default TournamentType;
