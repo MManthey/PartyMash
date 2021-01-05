@@ -9,7 +9,7 @@ import QROverlay from "../components/QROverlay";
 
 function Teams() {
 
-  const [modalVisible, setModal] = React.useState(false);
+  const [modalVisible, setModal] = React.useState(true);
 
   const handleOpen = () => {
     console.log("Try to open");

@@ -1,8 +1,10 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import Avatar from '@material-ui/core/Avatar'
+import {useTheme} from '@material-ui/core/styles'
 
 function BottomDrawer(props){
+    const theme = useTheme();
     const drawerStyle = {
         position: "fixed", 
         bottom: "-15px",
@@ -11,7 +13,7 @@ function BottomDrawer(props){
         height: "33%",
         border: "2px solid #0E4DA4",
         borderRadius: "15px",
-        background: "white",
+        background: theme.palette.background.paper,
         paddingTop: "5%",
         textAlign: "center",
     }
