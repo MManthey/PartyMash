@@ -6,6 +6,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ShareIcon from '@material-ui/icons/Share'
 
 function QROverlay(props) {
 
@@ -18,6 +19,18 @@ function QROverlay(props) {
   const dialogStyle = {
     textAlign: "center"
   }
+
+  const imageStyle = {
+    paddingLeft: "35%",
+    paddingRight: "35%",
+    paddingTop: "5%",
+    paddingBottom: "10%"
+  }
+
+  const buttonStyle = {
+    marginBottom : "10%"
+  }
+
   const classes = useStyles();
 
   return (
@@ -27,11 +40,11 @@ function QROverlay(props) {
         onClose={props.close}
         style={dialogStyle}>
 
-            <DialogTitle id="simple-dialog-title">Lobby erstellt!</DialogTitle>
-            <p style={{padding: "20px"}}>Teile den Code mit allen Teilnehmern</p>
+            <Typography style={{paddingTop: "15%"}} variant="h1">Lobby erstellt!</Typography>
+            <p style={{padding: "10px"}}>Teile den Code mit allen Teilnehmern</p>
             <p>Turniercode:</p>
             <Typography variant="h1">45583</Typography>
-            <img style={{paddingLeft: "25%", paddingRight:"25%"}} src="qr.png"></img>
+            <img style={imageStyle} src="qr.png"></img>
 
             <Button
               className={classes.button}
@@ -40,10 +53,13 @@ function QROverlay(props) {
               size="medium"
               component={Link}
               to="/tournamentOverview"
+              style={buttonStyle}
             >
-              <Typography noWrap={true} variant="button">
+              
+              <Typography noWrap={false} variant="button">
                 Teilen
               </Typography>
+              <ShareIcon style={{marginLeft: "10%"}}></ShareIcon>
             </Button>
 
     </Dialog>
