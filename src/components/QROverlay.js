@@ -20,11 +20,15 @@ function QROverlay(props) {
       height: 150,
       width: 150,
     },
+    modal: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      width: "50vw",
+      margin:"auto"
+    }
   }));
-
-  const dialogStyle = {
-    textAlign: "center",
-  };
 
   const buttonStyle = {
     marginBottom: "10%",
@@ -37,7 +41,7 @@ function QROverlay(props) {
       aria-labelledby="simple-dialog-title"
       open={props.open}
       onClose={props.close}
-      style={dialogStyle}
+      className={classes.modal}
     >
       <Typography style={{ paddingTop: "15%" }} variant="h1">
         Lobby erstellt!
