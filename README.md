@@ -5,6 +5,6 @@
 Um die App auszuprobieren führe folgende Schritte aus:
 
 - Repo klonen
-- Module installieren mit "yarn isntall"
+- Module installieren mit "yarn install"
 - App bauen mit "yarn build"
 - App ausliefern mit "serve -s build"
