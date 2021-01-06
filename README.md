@@ -1,6 +1,9 @@
-# partymash
+# partymash ![logo](/src/images/partymash_logo_small.png)
 
-... ist ein Uniprojekt, bei dem wir eine PWA fuer das Erstellen von Turnieren bauen.
+... ist ein Uniprojekt, bei dem wir eine PWA für das Erstellen von Turnieren bauen.
 
-- clone Repository
-- use command "yarn"
+Um die App auszuprobieren führe folgende Schritte aus:
+
+- Repo klonen
+- App bauen mit "yarn build"
+- App ausliefern mit "serve -s build"
