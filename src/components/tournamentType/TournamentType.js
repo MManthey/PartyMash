@@ -59,7 +59,7 @@ function TournamentType(props) {
           component="img"
           className={classes.media}
           image={props.tournamentType === "ko" ? ko_turnierSVG : runden_turnierSVG}
-          title="Contemplative Reptile"
+          title={props.name}
         ></CardMedia>
         <CardContent
         >

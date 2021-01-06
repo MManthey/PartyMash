@@ -70,3 +70,65 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+self.addEventListener("fetch", event => {
+  if (event.request.url === "http://localhost:5000") {
+      // or whatever your app's URL is
+      event.respondWith(
+          fetch(event.request).catch(err =>
+              self.cache.open(cache_name).then(cache => cache.match("/index.html"))
+          )
+      );
+  } else {
+      event.respondWith(
+          fetch(event.request).catch(err =>
+              caches.match(event.request).then(response => response)
+          )
+      );
+  }
+});
+
+/* 
+  This is all the stuff that we want to save in the cache.
+  In order for the app to work offline/be installable,
+  we have to save not just images but our HTML, JS, and CSS
+  as well - anything we want to use when offline.
+*/
+const ASSETS = [
+  "index.html",
+  "/static/**/*.js",
+  "/static/**/*.map",
+  "/static/**/*.css",
+  "/static/**/*.png",
+  "/static/**/*.svg",
+  "/static/media/*.svg",
+  "userImages/*.jpg",
+  "userImages/*.png",
+  "qr.png",
+  "./*"
+];
+
+let cache_name = "Partymash"; // The string used to identify our cache
+
+self.addEventListener("install", event => {
+    console.log("installing...");
+    event.waitUntil(
+        caches
+            .open(cache_name)
+            .then(cache => {
+                return cache.addAll(ASSETS);
+            })
+            .catch(err => console.log(err))
+    );
+});
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+          return Promise.all(keyList.map((key) => {
+        if(key !== cacheName) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+});
