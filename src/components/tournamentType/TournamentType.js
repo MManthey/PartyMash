@@ -76,7 +76,7 @@ function TournamentType(props) {
         <Button className={classes.button}
           name={props.tournamentType}
           variant="contained"
-          color="primary"          
+          color="secondary"          
           component={Link}
           to={props.linkTo}>
           Erstellen
