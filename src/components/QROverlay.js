@@ -25,6 +25,7 @@ function QROverlay(props) {
       alignItems: "center",
       justifyContent: "center",
       textAlign: "center",
+
       width: "50vw",
       margin:"auto"
     }
@@ -43,6 +44,7 @@ function QROverlay(props) {
       onClose={props.close}
       className={classes.modal}
     >
+      <Box px={5}>
       <Typography style={{ paddingTop: "15%" }} variant="h1">
         Lobby erstellt!
       </Typography>
@@ -67,6 +69,7 @@ function QROverlay(props) {
         </Typography>
         <ShareIcon style={{ marginLeft: "10%" }}></ShareIcon>
       </Button>
+      </Box>
     </Dialog>
   );
 }
