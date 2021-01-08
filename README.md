@@ -8,3 +8,6 @@ Um die App auszuprobieren führe folgende Schritte aus:
 - Module installieren mit "yarn install"
 - App bauen mit "yarn build"
 - App ausliefern mit "serve -s build"
+
+
+Die App kann [HIER](https://partymash.fritschindustries.de) ausprobiert werden.
